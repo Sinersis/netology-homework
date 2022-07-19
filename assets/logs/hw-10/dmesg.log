@@ -1,0 +1,656 @@
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410f0000]
+[    0.000000] Linux version 5.13.0-25-generic (buildd@bos02-arm64-029) (gcc (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0, GNU ld (GNU Binutils for Ubuntu) 2.34) #26~20.04.1-Ubuntu SMP Sat Jan 8 18:05:46 UTC 2022 (Ubuntu 5.13.0-25.26~20.04.1-generic 5.13.19)
+[    0.000000] Machine model: Parallels ARM Virtual Machine
+[    0.000000] efi: EFI v2.70 by EDK II
+[    0.000000] efi: SMBIOS 3.0=0x13f860000 ACPI 2.0=0x13c190000 MEMATTR=0x13e427a98 MEMRESERVE=0x13c069d98
+[    0.000000] secureboot: Secure boot disabled
+[    0.000000] NUMA: No NUMA configuration found
+[    0.000000] NUMA: Faking a node at [mem 0x0000000040000000-0x000000013fffffff]
+[    0.000000] NUMA: NODE_DATA [mem 0x13f4180c0-0x13f41cfff]
+[    0.000000] Zone ranges:
+[    0.000000]   DMA      [mem 0x0000000040000000-0x00000000ffffffff]
+[    0.000000]   DMA32    empty
+[    0.000000]   Normal   [mem 0x0000000100000000-0x000000013fffffff]
+[    0.000000]   Device   empty
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000040000000-0x00000000fffeffff]
+[    0.000000]   node   0: [mem 0x00000000ffff0000-0x00000000ffffffff]
+[    0.000000]   node   0: [mem 0x0000000100000000-0x000000013c0bffff]
+[    0.000000]   node   0: [mem 0x000000013c0c0000-0x000000013c17ffff]
+[    0.000000]   node   0: [mem 0x000000013c180000-0x000000013f66ffff]
+[    0.000000]   node   0: [mem 0x000000013f670000-0x000000013fa4ffff]
+[    0.000000]   node   0: [mem 0x000000013fa50000-0x000000013fffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000040000000-0x000000013fffffff]
+[    0.000000] On node 0 totalpages: 1048576
+[    0.000000]   DMA zone: 12288 pages used for memmap
+[    0.000000]   DMA zone: 0 pages reserved
+[    0.000000]   DMA zone: 786432 pages, LIFO batch:63
+[    0.000000]   Normal zone: 4096 pages used for memmap
+[    0.000000]   Normal zone: 262144 pages, LIFO batch:63
+[    0.000000] cma: Reserved 32 MiB at 0x00000000fd000000
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv1.0 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: Trusted OS migration not required
+[    0.000000] psci: SMC Calling Convention v1.0
+[    0.000000] percpu: Embedded 34 pages/cpu s98968 r8192 d32104 u139264
+[    0.000000] pcpu-alloc: s98968 r8192 d32104 u139264 alloc=34*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1
+[    0.000000] Detected PIPT I-cache on CPU0
+[    0.000000] CPU features: detected: Address authentication (IMP DEF algorithm)
+[    0.000000] CPU features: detected: Spectre-v4
+[    0.000000] alternatives: patching kernel code
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 1032192
+[    0.000000] Policy zone: Normal
+[    0.000000] Kernel command line: BOOT_IMAGE=/boot/vmlinuz-5.13.0-25-generic root=UUID=732910d6-ddae-4a95-ab9e-9f5c9edc555a ro
+[    0.000000] Dentry cache hash table entries: 524288 (order: 10, 4194304 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 262144 (order: 9, 2097152 bytes, linear)
+[    0.000000] mem auto-init: stack:off, heap alloc:on, heap free:off
+[    0.000000] software IO TLB: mapped [mem 0x00000000f9000000-0x00000000fd000000] (64MB)
+[    0.000000] Memory: 3905764K/4194304K available (15744K kernel code, 3654K rwdata, 13604K rodata, 7936K init, 1153K bss, 255772K reserved, 32768K cma-reserved)
+[    0.000000] random: get_random_u64 called from __kmem_cache_create+0x30/0x4b8 with crng_init=0
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=2, Nodes=1
+[    0.000000] ftrace: allocating 52349 entries in 205 pages
+[    0.000000] ftrace: allocated 205 pages with 5 groups
+[    0.000000] trace event string verifier disabled
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] rcu: 	RCU restricting CPUs from NR_CPUS=256 to nr_cpu_ids=2.
+[    0.000000] 	Rude variant of Tasks RCU enabled.
+[    0.000000] 	Tracing variant of Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] GICv3: 96 SPIs implemented
+[    0.000000] GICv3: 0 Extended SPIs implemented
+[    0.000000] GICv3: Distributor has Range Selector support
+[    0.000000] Root IRQ handler: gic_handle_irq
+[    0.000000] GICv3: 16 PPIs implemented
+[    0.000000] GICv3: CPU0: found redistributor 0 region 0:0x0000000002500000
+[    0.000000] GICv2m: range[mem 0x02250000-0x02250fff], SPI[53:116]
+[    0.000000] arch_timer: cp15 timer(s) running at 24.00MHz (virt).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x588fe9dc0, max_idle_ns: 440795202592 ns
+[    0.000000] sched_clock: 56 bits at 24MHz, resolution 41ns, wraps every 4398046511097ns
+[    0.000031] Console: colour dummy device 80x25
+[    0.000073] printk: console [tty0] enabled
+[    0.000085] Calibrating delay loop (skipped), value calculated using timer frequency.. 48.00 BogoMIPS (lpj=96000)
+[    0.000088] pid_max: default: 32768 minimum: 301
+[    0.000104] LSM: Security Framework initializing
+[    0.000108] Yama: becoming mindful.
+[    0.000148] AppArmor: AppArmor initialized
+[    0.000183] Mount-cache hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.000210] Mountpoint-cache hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.000565] rcu: Hierarchical SRCU implementation.
+[    0.000728] Remapping and enabling EFI services.
+[    0.000892] smp: Bringing up secondary CPUs ...
+[    0.001044] Detected PIPT I-cache on CPU1
+[    0.001053] GICv3: CPU1: found redistributor 1 region 0:0x0000000002520000
+[    0.001096] CPU1: Booted secondary processor 0x0000000001 [0x410f0000]
+[    0.001154] smp: Brought up 1 node, 2 CPUs
+[    0.001158] SMP: Total of 2 processors activated.
+[    0.001160] CPU features: detected: ARMv8.4 Translation Table Level
+[    0.001161] CPU features: detected: Data cache clean to the PoU not required for I/D coherence
+[    0.001162] CPU features: detected: Common not Private translations
+[    0.001163] CPU features: detected: CRC32 instructions
+[    0.001164] CPU features: detected: Data cache clean to Point of Deep Persistence
+[    0.001165] CPU features: detected: Data cache clean to Point of Persistence
+[    0.001165] CPU features: detected: E0PD
+[    0.001166] CPU features: detected: Generic authentication (IMP DEF algorithm)
+[    0.001167] CPU features: detected: RCpc load-acquire (LDAPR)
+[    0.001168] CPU features: detected: LSE atomic instructions
+[    0.001169] CPU features: detected: Privileged Access Never
+[    0.001170] CPU features: detected: RAS Extension Support
+[    0.001170] CPU features: detected: Speculation barrier (SB)
+[    0.001171] CPU features: detected: TLB range maintenance instructions
+[    0.001172] CPU features: detected: Speculative Store Bypassing Safe (SSBS)
+[    0.073028] CPU: All CPU(s) started at EL1
+[    0.073649] devtmpfs: initialized
+[    0.077457] Registered cp15_barrier emulation handler
+[    0.077459] setend instruction emulation is not supported on this system
+[    0.077461] KASLR disabled due to lack of seed
+[    0.077490] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.077508] futex hash table entries: 512 (order: 3, 32768 bytes, linear)
+[    0.077590] pinctrl core: initialized pinctrl subsystem
+[    0.077686] SMBIOS 3.0.0 present.
+[    0.077689] DMI: Parallels International GmbH. Parallels ARM Virtual Machine/Parallels ARM Virtual Platform, BIOS 17.1.4 (51567) Mon, 30 May 202
+[    0.077818] NET: Registered protocol family 16
+[    0.082468] DMA: preallocated 512 KiB GFP_KERNEL pool for atomic allocations
+[    0.082543] DMA: preallocated 512 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+[    0.082627] DMA: preallocated 512 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+[    0.082633] audit: initializing netlink subsys (disabled)
+[    0.082758] audit: type=2000 audit(0.080:1): state=initialized audit_enabled=0 res=1
+[    0.082882] thermal_sys: Registered thermal governor 'fair_share'
+[    0.082883] thermal_sys: Registered thermal governor 'bang_bang'
+[    0.082884] thermal_sys: Registered thermal governor 'step_wise'
+[    0.082885] thermal_sys: Registered thermal governor 'user_space'
+[    0.082886] thermal_sys: Registered thermal governor 'power_allocator'
+[    0.082894] cpuidle: using governor ladder
+[    0.082897] cpuidle: using governor menu
+[    0.082921] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.082947] ASID allocator initialised with 256 entries
+[    0.083067] Serial: AMBA PL011 UART driver
+[    0.083919] HugeTLB registered 1.00 GiB page size, pre-allocated 0 pages
+[    0.083921] HugeTLB registered 32.0 MiB page size, pre-allocated 0 pages
+[    0.083922] HugeTLB registered 2.00 MiB page size, pre-allocated 0 pages
+[    0.083923] HugeTLB registered 64.0 KiB page size, pre-allocated 0 pages
+[    0.087473] fbcon: Taking over console
+[    0.087477] ACPI: Interpreter disabled.
+[    0.087565] iommu: Default domain type: Translated
+[    0.087673] SCSI subsystem initialized
+[    0.087728] libata version 3.00 loaded.
+[    0.087762] vgaarb: loaded
+[    0.087784] usbcore: registered new interface driver usbfs
+[    0.087788] usbcore: registered new interface driver hub
+[    0.087790] usbcore: registered new device driver usb
+[    0.087802] pps_core: LinuxPPS API ver. 1 registered
+[    0.087803] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.087805] PTP clock support registered
+[    0.087873] EDAC MC: Ver: 3.0.0
+[    0.087956] Registered efivars operations
+[    0.088126] NetLabel: Initializing
+[    0.088127] NetLabel:  domain hash size = 128
+[    0.088128] NetLabel:  protocols = UNLABELED CIPSOv4 CALIPSO
+[    0.088134] NetLabel:  unlabeled traffic allowed by default
+[    0.088257] clocksource: Switched to clocksource arch_sys_counter
+[    0.094975] VFS: Disk quotas dquot_6.6.0
+[    0.094984] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    0.095066] AppArmor: AppArmor Filesystem Enabled
+[    0.095081] pnp: PnP ACPI: disabled
+[    0.095619] NET: Registered protocol family 2
+[    0.095798] IP idents hash table entries: 65536 (order: 7, 524288 bytes, linear)
+[    0.096319] tcp_listen_portaddr_hash hash table entries: 2048 (order: 3, 32768 bytes, linear)
+[    0.096409] TCP established hash table entries: 32768 (order: 6, 262144 bytes, linear)
+[    0.098546] TCP bind hash table entries: 32768 (order: 7, 524288 bytes, linear)
+[    0.098567] TCP: Hash tables configured (established 32768 bind 32768)
+[    0.100673] MPTCP token hash table entries: 4096 (order: 4, 98304 bytes, linear)
+[    0.100731] UDP hash table entries: 2048 (order: 4, 65536 bytes, linear)
+[    0.100767] UDP-Lite hash table entries: 2048 (order: 4, 65536 bytes, linear)
+[    0.100824] NET: Registered protocol family 1
+[    0.100828] NET: Registered protocol family 44
+[    0.100831] PCI: CLS 0 bytes, default 64
+[    0.100909] kvm [1]: HYP mode not available
+[    0.100929] Trying to unpack rootfs image as initramfs...
+[    0.100999] Initialise system trusted keyrings
+[    0.101005] Key type blacklist registered
+[    0.105027] workingset: timestamp_bits=40 max_order=20 bucket_order=0
+[    0.105579] zbud: loaded
+[    0.105736] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.108939] fuse: init (API version 7.34)
+[    0.109031] integrity: Platform Keyring initialized
+[    0.118234] Key type asymmetric registered
+[    0.118235] Asymmetric key parser 'x509' registered
+[    0.118241] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 242)
+[    0.118279] io scheduler mq-deadline registered
+[    0.121454] shpchp: Standard Hot Plug PCI Controller Driver version: 0.4
+[    0.121499] pci-host-generic 2300000.pci: host bridge /pci@2300000 ranges:
+[    0.121504] pci-host-generic 2300000.pci:       IO 0x0002400000..0x00024fffff -> 0x0002400000
+[    0.121507] pci-host-generic 2300000.pci:      MEM 0x0010000000..0x001fffffff -> 0x0010000000
+[    0.122261] pci-host-generic 2300000.pci: ECAM at [mem 0x02300000-0x023fffff] for [bus 00]
+[    0.122278] pci-host-generic 2300000.pci: PCI host bridge to bus 0000:00
+[    0.122280] pci_bus 0000:00: root bus resource [io  0x0000-0xfffff] (bus address [0x2400000-0x24fffff])
+[    0.122281] pci_bus 0000:00: root bus resource [mem 0x10000000-0x1fffffff]
+[    0.122305] pci 0000:00:01.0: [8086:293e] type 00 class 0x040300
+[    0.122317] pci 0000:00:01.0: reg 0x10: [mem 0x14004000-0x14007fff]
+[    0.122410] pci 0000:00:02.0: [8086:265c] type 00 class 0x0c0320
+[    0.122440] pci 0000:00:02.0: reg 0x10: [mem 0x1400b000-0x1400b3ff]
+[    0.122657] pci 0000:00:03.0: [1033:0194] type 00 class 0x0c0330
+[    0.122669] pci 0000:00:03.0: reg 0x10: [mem 0x1400a000-0x1400afff]
+[    0.122742] pci 0000:00:09.0: [1ab8:4000] type 00 class 0xff0000
+[    0.122753] pci 0000:00:09.0: reg 0x10: [mem 0x14009000-0x14009fff]
+[    0.124142] pci 0000:00:0a.0: [1af4:1050] type 00 class 0x030000
+[    0.133889] pci 0000:00:0a.0: reg 0x10: [mem 0x10000000-0x13ffffff pref]
+[    0.143141] pci 0000:00:0a.0: reg 0x14: [mem 0x14008000-0x14008fff]
+[    0.170374] pci 0000:00:0a.0: reg 0x20: [mem 0x14000000-0x14003fff]
+[    0.188459] pci 0000:00:0a.0: BAR 0: assigned to efifb
+[    0.188555] pci 0000:00:0a.0: vgaarb: setting as boot VGA device
+[    0.188556] pci 0000:00:0a.0: vgaarb: VGA device added: decodes=io+mem,owns=io+mem,locks=none
+[    0.188604] pci 0000:00:0a.0: BAR 0: assigned [mem 0x10000000-0x13ffffff pref]
+[    0.197460] pci 0000:00:01.0: BAR 0: assigned [mem 0x14000000-0x14003fff]
+[    0.197465] pci 0000:00:0a.0: BAR 4: assigned [mem 0x14004000-0x14007fff]
+[    0.206425] pci 0000:00:03.0: BAR 0: assigned [mem 0x14008000-0x14008fff]
+[    0.206436] pci 0000:00:09.0: BAR 0: assigned [mem 0x14009000-0x14009fff]
+[    0.206441] pci 0000:00:0a.0: BAR 1: assigned [mem 0x1400a000-0x1400afff]
+[    0.215835] pci 0000:00:02.0: BAR 0: assigned [mem 0x1400b000-0x1400b3ff]
+[    0.215891] pci 0000:00:03.0: enabling device (0010 -> 0012)
+[    0.216070] efifb: probing for efifb
+[    0.216080] efifb: No BGRT, not showing boot graphics
+[    0.216081] efifb: framebuffer at 0x10000000, using 3072k, total 3072k
+[    0.216083] efifb: mode is 1024x768x32, linelength=4096, pages=1
+[    0.216084] efifb: scrolling: redraw
+[    0.216085] efifb: Truecolor: size=8:8:8:8, shift=24:16:8:0
+[    0.216175] Console: switching to colour frame buffer device 128x48
+[    0.217127] fb0: EFI VGA frame buffer device
+[    0.218155] Serial: 8250/16550 driver, 32 ports, IRQ sharing enabled
+[    0.218915] msm_serial: driver initialized
+[    0.219057] cacheinfo: Unable to detect cache hierarchy for CPU 0
+[    0.275260] Freeing initrd memory: 61784K
+[    0.361090] loop: module loaded
+[    0.361597] libphy: Fixed MDIO Bus: probed
+[    0.361613] tun: Universal TUN/TAP device driver, 1.6
+[    0.361730] PPP generic driver version 2.4.2
+[    0.361809] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    0.361827] ehci-pci: EHCI PCI platform driver
+[    0.361918] ehci-pci 0000:00:02.0: EHCI Host Controller
+[    0.361937] ehci-pci 0000:00:02.0: new USB bus registered, assigned bus number 1
+[    0.362040] ehci-pci 0000:00:02.0: Enabling legacy PCI PM
+[    0.362092] ehci-pci 0000:00:02.0: irq 17, io mem 0x1400b000
+[    0.377091] ehci-pci 0000:00:02.0: USB 2.0 started, EHCI 1.00
+[    0.377165] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 5.13
+[    0.377185] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    0.377203] usb usb1: Product: EHCI Host Controller
+[    0.377219] usb usb1: Manufacturer: Linux 5.13.0-25-generic ehci_hcd
+[    0.377235] usb usb1: SerialNumber: 0000:00:02.0
+[    0.377363] hub 1-0:1.0: USB hub found
+[    0.377379] hub 1-0:1.0: 15 ports detected
+[    0.377938] ehci-orion: EHCI orion driver
+[    0.378303] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    0.378655] ohci-pci: OHCI PCI platform driver
+[    0.379020] uhci_hcd: USB Universal Host Controller Interface driver
+[    0.379507] mousedev: PS/2 mouse device common for all mice
+[    0.380179] rtc-efi rtc-efi.0: registered as rtc0
+[    0.380643] rtc-efi rtc-efi.0: setting system clock to 2022-07-18T17:23:30 UTC (1658165010)
+[    0.381057] i2c /dev entries driver
+[    0.381545] device-mapper: uevent: version 1.0.3
+[    0.382005] device-mapper: ioctl: 4.45.0-ioctl (2021-03-22) initialised: dm-devel@redhat.com
+[    0.382520] ledtrig-cpu: registered to indicate activity on CPUs
+[    0.383083] drop_monitor: Initializing network drop monitor service
+[    0.383587] NET: Registered protocol family 10
+[    0.390775] Segment Routing with IPv6
+[    0.391132] NET: Registered protocol family 17
+[    0.391538] Key type dns_resolver registered
+[    0.392019] registered taskstats version 1
+[    0.392385] Loading compiled-in X.509 certificates
+[    0.393371] Loaded X.509 cert 'Build time autogenerated kernel key: fd5167ee8f1a1eb6f9d73b43f4999c4273ca5399'
+[    0.394192] Loaded X.509 cert 'Canonical Ltd. Live Patch Signing: 14df34d1a87cf37625abec039ef2bf521249b969'
+[    0.395000] Loaded X.509 cert 'Canonical Ltd. Kernel Module Signing: 88f752e560a1e0737e31163a466ad7b70a850c19'
+[    0.395371] blacklist: Loading compiled-in revocation X.509 certificates
+[    0.395756] Loaded X.509 cert 'Canonical Ltd. Secure Boot Signing: 61482aa2830d0ab2ad5af10b7250da9033ddcef0'
+[    0.396167] zswap: loaded using pool lzo/zbud
+[    0.396675] Key type ._fscrypt registered
+[    0.397018] Key type .fscrypt registered
+[    0.397353] Key type fscrypt-provisioning registered
+[    0.400170] Key type encrypted registered
+[    0.400542] AppArmor: AppArmor sha1 policy hashing enabled
+[    0.401080] ima: No TPM chip found, activating TPM-bypass!
+[    0.401428] Loading compiled-in module X.509 certificates
+[    0.402177] Loaded X.509 cert 'Build time autogenerated kernel key: fd5167ee8f1a1eb6f9d73b43f4999c4273ca5399'
+[    0.402540] ima: Allocated hash algorithm: sha1
+[    0.402902] ima: No architecture policies found
+[    0.403253] evm: Initialising EVM extended attributes:
+[    0.403606] evm: security.selinux
+[    0.403932] evm: security.SMACK64
+[    0.404248] evm: security.SMACK64EXEC
+[    0.404574] evm: security.SMACK64TRANSMUTE
+[    0.404884] evm: security.SMACK64MMAP
+[    0.405185] evm: security.apparmor
+[    0.405476] evm: security.ima
+[    0.405767] evm: security.capability
+[    0.406049] evm: HMAC attrs: 0x1
+[    0.407823] Freeing unused kernel memory: 7936K
+[    0.437811] Checked W+X mappings: passed, no W+X pages found
+[    0.438138] Run /init as init process
+[    0.438450]   with arguments:
+[    0.438451]     /init
+[    0.438451]   with environment:
+[    0.438452]     HOME=/
+[    0.438452]     TERM=linux
+[    0.438452]     BOOT_IMAGE=/boot/vmlinuz-5.13.0-25-generic
+[    0.511946] ahci 2140000.ahci: supply ahci not found, using dummy regulator
+[    0.512288] ahci 2140000.ahci: supply phy not found, using dummy regulator
+[    0.512544] ahci 2140000.ahci: supply target not found, using dummy regulator
+[    0.512815] ahci 2140000.ahci: SSS flag set, parallel bus scan disabled
+[    0.513131] ahci 2140000.ahci: AHCI 0001.0100 32 slots 6 ports 3 Gbps 0x3f impl platform mode
+[    0.513386] ahci 2140000.ahci: flags: 64bit ncq stag pm led only slum part
+[    0.514980] scsi host0: ahci
+[    0.515491] prl_tg: loading out-of-tree module taints kernel.
+[    0.515745] prl_tg: module license 'Parallels' taints kernel.
+[    0.515997] Disabling lock debugging due to kernel taint
+[    0.520135] prl_tg: module verification failed: signature and/or required key missing - tainting kernel
+[    0.520715] Parallels ToolGate driver 1.10.0 loaded
+[    0.520992] prl_tg 0000:00:09.0: enabling device (0010 -> 0012)
+[    0.521319] detected Parallels ToolGate, base addr ffff80001003d000, IRQ 19
+[    0.521986] xhci_hcd 0000:00:03.0: xHCI Host Controller
+[    0.522241] xhci_hcd 0000:00:03.0: new USB bus registered, assigned bus number 2
+[    0.522653] xhci_hcd 0000:00:03.0: hcc params 0x01c15001 hci version 0x110 quirks 0x0000000000000014
+[    0.523008] xhci_hcd 0000:00:03.0: xHCI Host Controller
+[    0.523255] xhci_hcd 0000:00:03.0: new USB bus registered, assigned bus number 3
+[    0.523498] xhci_hcd 0000:00:03.0: Host supports USB 3.1 Enhanced SuperSpeed
+[    0.523803] scsi host1: ahci
+[    0.524275] scsi host2: ahci
+[    0.528522] scsi host3: ahci
+[    0.528565] usb usb2: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 5.13
+[    0.528860] scsi host4: ahci
+[    0.528994] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    0.529471] usb usb2: Product: xHCI Host Controller
+[    0.529707] usb usb2: Manufacturer: Linux 5.13.0-25-generic xhci-hcd
+[    0.529946] usb usb2: SerialNumber: 0000:00:03.0
+[    0.530331] hub 2-0:1.0: USB hub found
+[    0.530568] hub 2-0:1.0: 2 ports detected
+[    0.530864] usb usb3: We don't know the algorithms for LPM for this host, disabling LPM.
+[    0.531105] usb usb3: New USB device found, idVendor=1d6b, idProduct=0003, bcdDevice= 5.13
+[    0.531337] usb usb3: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    0.531567] usb usb3: Product: xHCI Host Controller
+[    0.531804] usb usb3: Manufacturer: Linux 5.13.0-25-generic xhci-hcd
+[    0.532042] usb usb3: SerialNumber: 0000:00:03.0
+[    0.532352] scsi host5: ahci
+[    0.532624] hub 3-0:1.0: USB hub found
+[    0.532903] ata1: SATA max UDMA/133 mmio [mem 0x02140000-0x02141fff] port 0x100 irq 13
+[    0.533162] ata2: SATA max UDMA/133 mmio [mem 0x02140000-0x02141fff] port 0x180 irq 13
+[    0.533414] ata3: SATA max UDMA/133 mmio [mem 0x02140000-0x02141fff] port 0x200 irq 13
+[    0.533667] ata4: SATA max UDMA/133 mmio [mem 0x02140000-0x02141fff] port 0x280 irq 13
+[    0.533921] ata5: SATA max UDMA/133 mmio [mem 0x02140000-0x02141fff] port 0x300 irq 13
+[    0.534166] ata6: SATA max UDMA/133 mmio [mem 0x02140000-0x02141fff] port 0x380 irq 13
+[    0.534428] hub 3-0:1.0: 12 ports detected
+[    0.848540] ata1: SATA link up 1.5 Gbps (SStatus 113 SControl 300)
+[    0.850419] ata1.00: ATA-8: ubuntu-linux-20.04-desktop-0 SSD, F.WAJ9WM, max UDMA/100
+[    0.851909] ata1.00: 134217728 sectors, multi 0: LBA48 NCQ (depth 32)
+[    0.854256] ata1.00: configured for UDMA/100
+[    0.862832] scsi 0:0:0:0: Direct-Access     ATA      ubuntu-linux-20. J9WM PQ: 0 ANSI: 5
+[    0.865576] sd 0:0:0:0: [sda] 134217728 512-byte logical blocks: (68.7 GB/64.0 GiB)
+[    0.866348] sd 0:0:0:0: [sda] 4096-byte physical blocks
+[    0.867175] sd 0:0:0:0: [sda] Write Protect is off
+[    0.867923] sd 0:0:0:0: [sda] Mode Sense: 00 3a 00 00
+[    0.867937] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+[    0.868724] sd 0:0:0:0: Attached scsi generic sg0 type 0
+[    0.877894] usb 3-1: new SuperSpeed USB device number 2 using xhci_hcd
+[    0.898189] usb 3-1: LPM exit latency is zeroed, disabling LPM.
+[    0.901685] usb 3-1: New USB device found, idVendor=203a, idProduct=fffc, bcdDevice= 1.00
+[    0.902636] usb 3-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[    0.903660] usb 3-1: Product: Virtual Mouse
+[    0.904599] usb 3-1: Manufacturer: Parallels
+[    0.906125] usb 3-1: SerialNumber: PW3.0
+[    0.909948]  sda: sda1 sda2
+[    0.941300] sd 0:0:0:0: [sda] Attached SCSI disk
+[    1.042038] usb 3-2: new SuperSpeed USB device number 3 using xhci_hcd
+[    1.062597] usb 3-2: LPM exit latency is zeroed, disabling LPM.
+[    1.067118] usb 3-2: New USB device found, idVendor=203a, idProduct=fffb, bcdDevice= 1.00
+[    1.068626] usb 3-2: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[    1.070093] usb 3-2: Product: Virtual Keyboard
+[    1.071213] usb 3-2: Manufacturer: Parallels
+[    1.072225] usb 3-2: SerialNumber: PW3.0
+[    1.087976] hid: raw HID events driver (C) Jiri Kosina
+[    1.094686] usbcore: registered new interface driver usbhid
+[    1.095291] usbhid: USB HID core driver
+[    1.099323] input: Parallels Virtual Mouse as /devices/platform/2300000.pci/pci0000:00/0000:00:03.0/usb3/3-1/3-1:1.0/0003:203A:FFFC.0001/input/input0
+[    1.100851] hid-generic 0003:203A:FFFC.0001: input,hidraw0: USB HID v1.10 Mouse [Parallels Virtual Mouse] on usb-0000:00:03.0-1/input0
+[    1.102434] input: Parallels Virtual Mouse as /devices/platform/2300000.pci/pci0000:00/0000:00:03.0/usb3/3-1/3-1:1.1/0003:203A:FFFC.0002/input/input1
+[    1.103796] hid-generic 0003:203A:FFFC.0002: input,hidraw1: USB HID v1.10 Mouse [Parallels Virtual Mouse] on usb-0000:00:03.0-1/input1
+[    1.105201] input: Parallels Virtual Keyboard as /devices/platform/2300000.pci/pci0000:00/0000:00:03.0/usb3/3-2/3-2:1.0/0003:203A:FFFB.0003/input/input2
+[    1.165221] hid-generic 0003:203A:FFFB.0003: input,hidraw2: USB HID v10.01 Keyboard [Parallels Virtual Keyboard] on usb-0000:00:03.0-2/input0
+[    1.181374] ata2: SATA link up 1.5 Gbps (SStatus 113 SControl 300)
+[    1.182560] ata2.00: ATAPI: Virtual DVD-ROM [1], FWR1, max UDMA/25
+[    1.183763] ata2.00: configured for UDMA/25
+[    1.185179] scsi 1:0:0:0: CD-ROM                     Virtual DVD-ROM  R103 PQ: 0 ANSI: 5
+[    1.214439] sr 1:0:0:0: [sr0] scsi3-mmc drive: 44x/44x cd/rw xa/form2 cdda tray
+[    1.217099] cdrom: Uniform CD-ROM driver Revision: 3.20
+[    1.249183] sr 1:0:0:0: Attached scsi CD-ROM sr0
+[    1.249378] sr 1:0:0:0: Attached scsi generic sg1 type 5
+[    1.576169] ata3: SATA link down (SStatus 0 SControl 300)
+[    1.899173] ata4: SATA link down (SStatus 0 SControl 300)
+[    2.217177] ata5: SATA link down (SStatus 0 SControl 300)
+[    2.536020] ata6: SATA link down (SStatus 0 SControl 300)
+[    2.632400] random: fast init done
+[    2.640523] EXT4-fs (sda2): mounted filesystem with ordered data mode. Opts: (null). Quota mode: none.
+[    2.704890] systemd[1]: Inserted module 'autofs4'
+[    2.713262] systemd[1]: systemd 245.4-4ubuntu3.15 running in system mode. (+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 +SECCOMP +BLKID +ELFUTILS +KMOD +IDN2 -IDN +PCRE2 default-hierarchy=hybrid)
+[    2.714358] systemd[1]: Detected virtualization parallels.
+[    2.714735] systemd[1]: Detected architecture arm64.
+[    2.722948] systemd[1]: Set hostname to <ubuntu-linux-20-04-desktop>.
+[    2.785499] systemd[1]: /etc/systemd/system/prltoolsd.service:13: PIDFile= references a path below legacy directory /var/run/, updating /var/run/prltoolsd.pid → /run/prltoolsd.pid; please update the unit file accordingly.
+[    2.804866] systemd[1]: Created slice system-modprobe.slice.
+[    2.805769] systemd[1]: Created slice User and Session Slice.
+[    2.806512] systemd[1]: Started Forward Password Requests to Wall Directory Watch.
+[    2.807291] systemd[1]: Set up automount Arbitrary Executable File Formats File System Automount Point.
+[    2.808014] systemd[1]: Reached target User and Group Name Lookups.
+[    2.808712] systemd[1]: Reached target Remote File Systems.
+[    2.809377] systemd[1]: Reached target Slices.
+[    2.810116] systemd[1]: Listening on Syslog Socket.
+[    2.810800] systemd[1]: Listening on initctl Compatibility Named Pipe.
+[    2.811516] systemd[1]: Listening on Journal Audit Socket.
+[    2.812208] systemd[1]: Listening on Journal Socket (/dev/log).
+[    2.812918] systemd[1]: Listening on Journal Socket.
+[    2.813649] systemd[1]: Listening on Network Service Netlink Socket.
+[    2.814401] systemd[1]: Listening on udev Control Socket.
+[    2.815126] systemd[1]: Listening on udev Kernel Socket.
+[    2.816182] systemd[1]: Mounting Huge Pages File System...
+[    2.817289] systemd[1]: Mounting POSIX Message Queue File System...
+[    2.818402] systemd[1]: Mounting Kernel Debug File System...
+[    2.819485] systemd[1]: Mounting Kernel Trace File System...
+[    2.820712] systemd[1]: Starting Journal Service...
+[    2.821778] systemd[1]: Starting Set the console keyboard layout...
+[    2.822898] systemd[1]: Starting Create list of static device nodes for the current kernel...
+[    2.823981] systemd[1]: Starting Load Kernel Module drm...
+[    2.826198] systemd[1]: Condition check resulted in OpenVSwitch configuration for cleanup being skipped.
+[    2.828387] systemd[1]: Condition check resulted in Set Up Additional Binary Formats being skipped.
+[    2.832568] systemd[1]: Starting Load Kernel Modules...
+[    2.833721] systemd[1]: Starting Remount Root and Kernel File Systems...
+[    2.840403] systemd[1]: Starting udev Coldplug all Devices...
+[    2.841422] systemd[1]: Starting Uncomplicated firewall...
+[    2.842785] systemd[1]: Mounted Huge Pages File System.
+[    2.843566] systemd[1]: Mounted POSIX Message Queue File System.
+[    2.844231] systemd[1]: Mounted Kernel Debug File System.
+[    2.844979] systemd[1]: Mounted Kernel Trace File System.
+[    2.846921] systemd[1]: Finished Create list of static device nodes for the current kernel.
+[    2.847716] systemd[1]: modprobe@drm.service: Succeeded.
+[    2.848168] systemd[1]: Finished Load Kernel Module drm.
+[    2.848175] EXT4-fs (sda2): re-mounted. Opts: (null). Quota mode: none.
+[    2.850621] systemd[1]: Finished Remount Root and Kernel File Systems.
+[    2.851322] systemd[1]: Started Journal Service.
+[    2.870046] lp: driver loaded but no devices found
+[    2.870831] systemd-journald[243]: Received client request to flush runtime journal.
+[    2.877638] ppdev: user-space parallel port driver
+[    2.888427] Adding 2097148k swap on /swap.img.  Priority:-2 extents:4 across:2244604k SSFS
+[    2.929186] loop0: detected capacity change from 0 to 117720
+[    2.940407] loop1: detected capacity change from 0 to 100296
+[    2.940479] loop2: detected capacity change from 0 to 57488
+[    2.960302] loop3: detected capacity change from 0 to 76728
+[    2.963836] loop4: detected capacity change from 0 to 126880
+[    2.979204] loop5: detected capacity change from 0 to 124240
+[    2.988508] loop6: detected capacity change from 0 to 100160
+[    3.172976] pstore: Using crash dump compression: deflate
+[    3.172982] pstore: Registered efi as persistent store backend
+[    3.253206] cryptd: max_cpu_qlen set to 1000
+[    3.277988] [drm] pci: virtio-vga detected at 0000:00:0a.0
+[    3.277992] checking generic (10000000 300000) vs hw (10000000 4000000)
+[    3.277993] fb0: switching to virtiodrmfb from EFI VGA
+[    3.283667] Console: switching to colour dummy device 80x25
+[    3.283731] [drm] features: +virgl -edid -resource_blob -host_visible
+[    3.283930] [drm] number of scanouts: 16
+[    3.283932] [drm] number of cap sets: 1
+[    3.285303] [drm] cap set 0: id 2, max-version 2, max-size 696
+[    3.285817] [drm] Initialized virtio_gpu 0.1.0 0 for virtio2 on minor 0
+[    3.311440] Console: switching to colour frame buffer device 128x48
+[    3.312175] virtio_gpu virtio2: [drm] fb0: virtio_gpudrmfb frame buffer device
+[    3.390177] snd_hda_intel 0000:00:01.0: enabling device (0000 -> 0002)
+[    3.390196] snd_hda_intel 0000:00:01.0: Force to snoop mode by module option
+[    3.403636] snd_hda_codec_generic hdaudioC0D0: autoconfig for Generic: line_outs=5 (0xa/0xc/0xb/0xf/0xd) type:speaker
+[    3.403640] snd_hda_codec_generic hdaudioC0D0:    speaker_outs=0 (0x0/0x0/0x0/0x0/0x0)
+[    3.403641] snd_hda_codec_generic hdaudioC0D0:    hp_outs=0 (0x0/0x0/0x0/0x0/0x0)
+[    3.403642] snd_hda_codec_generic hdaudioC0D0:    mono: mono_out=0x0
+[    3.403643] snd_hda_codec_generic hdaudioC0D0:    inputs:
+[    3.403643] snd_hda_codec_generic hdaudioC0D0:      Mic=0xe
+[    3.407135] input: HDA Intel Mic as /devices/platform/2300000.pci/pci0000:00/0000:00:01.0/sound/card0/input3
+[    3.407156] input: HDA Intel Speaker as /devices/platform/2300000.pci/pci0000:00/0000:00:01.0/sound/card0/input4
+[    3.407169] input: HDA Intel Speaker as /devices/platform/2300000.pci/pci0000:00/0000:00:01.0/sound/card0/input5
+[    3.407183] input: HDA Intel Speaker as /devices/platform/2300000.pci/pci0000:00/0000:00:01.0/sound/card0/input6
+[    3.407196] input: HDA Intel Speaker as /devices/platform/2300000.pci/pci0000:00/0000:00:01.0/sound/card0/input7
+[    3.407210] input: HDA Intel Speaker as /devices/platform/2300000.pci/pci0000:00/0000:00:01.0/sound/card0/input8
+[    3.902132] audit: type=1400 audit(1658165014.016:2): apparmor="STATUS" operation="profile_load" profile="unconfined" name="libreoffice-xpdfimport" pid=546 comm="apparmor_parser"
+[    3.911017] audit: type=1400 audit(1658165014.024:3): apparmor="STATUS" operation="profile_load" profile="unconfined" name="/usr/lib/NetworkManager/nm-dhcp-client.action" pid=544 comm="apparmor_parser"
+[    3.911020] audit: type=1400 audit(1658165014.024:4): apparmor="STATUS" operation="profile_load" profile="unconfined" name="/usr/lib/NetworkManager/nm-dhcp-helper" pid=544 comm="apparmor_parser"
+[    3.911021] audit: type=1400 audit(1658165014.024:5): apparmor="STATUS" operation="profile_load" profile="unconfined" name="/usr/lib/connman/scripts/dhclient-script" pid=544 comm="apparmor_parser"
+[    3.911022] audit: type=1400 audit(1658165014.024:6): apparmor="STATUS" operation="profile_load" profile="unconfined" name="/{,usr/}sbin/dhclient" pid=544 comm="apparmor_parser"
+[    3.922154] audit: type=1400 audit(1658165014.036:7): apparmor="STATUS" operation="profile_load" profile="unconfined" name="/usr/lib/cups/backend/cups-pdf" pid=551 comm="apparmor_parser"
+[    3.922158] audit: type=1400 audit(1658165014.036:8): apparmor="STATUS" operation="profile_load" profile="unconfined" name="/usr/sbin/cupsd" pid=551 comm="apparmor_parser"
+[    3.922159] audit: type=1400 audit(1658165014.036:9): apparmor="STATUS" operation="profile_load" profile="unconfined" name="/usr/sbin/cupsd//third_party" pid=551 comm="apparmor_parser"
+[    3.925931] audit: type=1400 audit(1658165014.040:10): apparmor="STATUS" operation="profile_load" profile="unconfined" name="lsb_release" pid=552 comm="apparmor_parser"
+[    4.101105] random: avahi-daemon: uninitialized urandom read (4 bytes read)
+[    4.101371] random: dbus-daemon: uninitialized urandom read (12 bytes read)
+[    4.190950] random: dbus-daemon: uninitialized urandom read (12 bytes read)
+[    4.398812] Parallels Linux shared folders filesystem driver 2.1.0 loaded
+[    5.228284] usb 1-1: new high-speed USB device number 2 using ehci-pci
+[    5.394329] usb 1-1: New USB device found, idVendor=203a, idProduct=fffa, bcdDevice= 1.00
+[    5.394333] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[    5.394334] usb 1-1: Product: Virtual Printer (Print to PDF (Mac Desktop))
+[    5.394335] usb 1-1: Manufacturer: Parallels
+[    5.394335] usb 1-1: SerialNumber: TAG11d87aca0
+[    5.428305] usblp 1-1:1.0: usblp0: USB Unidirectional printer dev 2 if 0 alt 0 proto 1 vid 0x203A pid 0xFFFA
+[    5.428357] usbcore: registered new interface driver usblp
+[    6.424643] loop7: detected capacity change from 0 to 8
+[    6.828917] rfkill: input handler disabled
+[   10.155469] random: crng init done
+[   10.155474] random: 7 urandom warning(s) missed due to ratelimiting
+[   10.528843] usblp0: removed
+[   10.532436] usblp 1-1:1.0: usblp0: USB Unidirectional printer dev 2 if 0 alt 0 proto 1 vid 0x203A pid 0xFFFA
+[  319.332887] loop7: detected capacity change from 0 to 118432
+[  320.340370] loop8: detected capacity change from 0 to 83208
+[  320.652493] kauditd_printk_skb: 37 callbacks suppressed
+[  320.652495] audit: type=1400 audit(1658165330.628:48): apparmor="STATUS" operation="profile_load" profile="unconfined" name="/snap/snapd/16299/usr/lib/snapd/snap-confine" pid=2962 comm="apparmor_parser"
+[  320.653059] audit: type=1400 audit(1658165330.628:49): apparmor="STATUS" operation="profile_load" profile="unconfined" name="/snap/snapd/16299/usr/lib/snapd/snap-confine//mount-namespace-capture-helper" pid=2962 comm="apparmor_parser"
+[  320.662229] audit: type=1400 audit(1658165330.636:50): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="snap-update-ns.lxd" pid=2964 comm="apparmor_parser"
+[  320.665093] audit: type=1400 audit(1658165330.640:51): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="snap.lxd.activate" pid=2965 comm="apparmor_parser"
+[  320.669063] audit: type=1400 audit(1658165330.644:52): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="snap.lxd.benchmark" pid=2966 comm="apparmor_parser"
+[  320.669215] audit: type=1400 audit(1658165330.644:53): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="snap.lxd.buginfo" pid=2967 comm="apparmor_parser"
+[  320.674080] audit: type=1400 audit(1658165330.648:54): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="snap.lxd.check-kernel" pid=2968 comm="apparmor_parser"
+[  320.674147] audit: type=1400 audit(1658165330.648:55): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="snap.lxd.daemon" pid=2969 comm="apparmor_parser"
+[  320.677459] audit: type=1400 audit(1658165330.652:56): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="snap.lxd.hook.install" pid=2971 comm="apparmor_parser"
+[  320.677790] audit: type=1400 audit(1658165330.652:57): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="snap.lxd.hook.configure" pid=2970 comm="apparmor_parser"
+[  365.911097] loop9: detected capacity change from 0 to 8
+[  366.625935] kauditd_printk_skb: 5 callbacks suppressed
+[  366.625940] audit: type=1400 audit(1658165376.601:63): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="/snap/snapd/16299/usr/lib/snapd/snap-confine" pid=3307 comm="apparmor_parser"
+[  366.640191] audit: type=1400 audit(1658165376.617:64): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="/snap/snapd/16299/usr/lib/snapd/snap-confine//mount-namespace-capture-helper" pid=3307 comm="apparmor_parser"
+[  366.698616] audit: type=1400 audit(1658165376.673:65): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="snap.lxd.activate" pid=3309 comm="apparmor_parser"
+[  366.698791] audit: type=1400 audit(1658165376.677:66): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="snap.lxd.benchmark" pid=3310 comm="apparmor_parser"
+[  366.741293] audit: type=1400 audit(1658165376.717:67): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="snap.lxd.buginfo" pid=3311 comm="apparmor_parser"
+[  366.748644] audit: type=1400 audit(1658165376.725:68): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="snap.lxd.check-kernel" pid=3312 comm="apparmor_parser"
+[  366.794685] audit: type=1400 audit(1658165376.769:69): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="snap.lxd.daemon" pid=3316 comm="apparmor_parser"
+[  366.807415] audit: type=1400 audit(1658165376.785:70): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="snap.lxd.hook.configure" pid=3317 comm="apparmor_parser"
+[  366.829341] audit: type=1400 audit(1658165376.805:71): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="snap.lxd.hook.install" pid=3318 comm="apparmor_parser"
+[  366.848928] audit: type=1400 audit(1658165376.825:72): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="snap.lxd.hook.remove" pid=3319 comm="apparmor_parser"
+[  368.810846] loop2: detected capacity change from 0 to 100352
+[  618.455167] loop6: detected capacity change from 0 to 124984
+[  619.721293] kauditd_printk_skb: 5 callbacks suppressed
+[  619.721295] audit: type=1400 audit(1658165629.700:78): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="/snap/snapd/16299/usr/lib/snapd/snap-confine" pid=4290 comm="apparmor_parser"
+[  619.737045] audit: type=1400 audit(1658165629.720:79): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="/snap/snapd/16299/usr/lib/snapd/snap-confine//mount-namespace-capture-helper" pid=4290 comm="apparmor_parser"
+[  619.782390] audit: type=1400 audit(1658165629.760:80): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="snap.lxd.activate" pid=4292 comm="apparmor_parser"
+[  619.782531] audit: type=1400 audit(1658165629.760:81): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="snap.lxd.benchmark" pid=4293 comm="apparmor_parser"
+[  619.826497] audit: type=1400 audit(1658165629.804:82): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="snap.lxd.check-kernel" pid=4295 comm="apparmor_parser"
+[  619.826690] audit: type=1400 audit(1658165629.804:83): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="snap.lxd.buginfo" pid=4294 comm="apparmor_parser"
+[  619.880424] audit: type=1400 audit(1658165629.860:84): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="snap.lxd.daemon" pid=4296 comm="apparmor_parser"
+[  619.881278] audit: type=1400 audit(1658165629.860:85): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="snap.lxd.hook.configure" pid=4297 comm="apparmor_parser"
+[  619.915355] audit: type=1400 audit(1658165629.892:86): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="snap.lxd.hook.install" pid=4298 comm="apparmor_parser"
+[  619.923163] audit: type=1400 audit(1658165629.900:87): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="snap.lxd.hook.remove" pid=4299 comm="apparmor_parser"
+[  889.529608] usb 3-1: USB disconnect, device number 2
+[  890.021172] usb 3-1: new SuperSpeed USB device number 4 using xhci_hcd
+[  890.045298] usb 3-1: LPM exit latency is zeroed, disabling LPM.
+[  890.045567] usb 3-1: New USB device found, idVendor=203a, idProduct=fffc, bcdDevice= 1.00
+[  890.045568] usb 3-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[  890.045569] usb 3-1: Product: Virtual Mouse
+[  890.045570] usb 3-1: Manufacturer: Parallels
+[  890.045570] usb 3-1: SerialNumber: PW3.0
+[  890.046280] input: Parallels Virtual Mouse as /devices/platform/2300000.pci/pci0000:00/0000:00:03.0/usb3/3-1/3-1:1.0/0003:203A:FFFC.0004/input/input9
+[  890.046349] hid-generic 0003:203A:FFFC.0004: input,hidraw0: USB HID v1.10 Mouse [Parallels Virtual Mouse] on usb-0000:00:03.0-1/input0
+[  890.046632] input: Parallels Virtual Mouse as /devices/platform/2300000.pci/pci0000:00/0000:00:03.0/usb3/3-1/3-1:1.1/0003:203A:FFFC.0005/input/input10
+[  890.046662] hid-generic 0003:203A:FFFC.0005: input,hidraw1: USB HID v1.10 Mouse [Parallels Virtual Mouse] on usb-0000:00:03.0-1/input1
+[  890.046721] usb 3-2: USB disconnect, device number 3
+[  890.447630] usb 1-1: USB disconnect, device number 2
+[  890.447914] usblp0: removed
+[  890.505834] usb 3-2: new SuperSpeed USB device number 5 using xhci_hcd
+[  890.526064] usb 3-2: LPM exit latency is zeroed, disabling LPM.
+[  890.526258] usb 3-2: New USB device found, idVendor=203a, idProduct=fffb, bcdDevice= 1.00
+[  890.526260] usb 3-2: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[  890.526261] usb 3-2: Product: Virtual Keyboard
+[  890.526262] usb 3-2: Manufacturer: Parallels
+[  890.526263] usb 3-2: SerialNumber: PW3.0
+[  890.526820] input: Parallels Virtual Keyboard as /devices/platform/2300000.pci/pci0000:00/0000:00:03.0/usb3/3-2/3-2:1.0/0003:203A:FFFB.0006/input/input11
+[  890.585346] hid-generic 0003:203A:FFFB.0006: input,hidraw2: USB HID v10.01 Keyboard [Parallels Virtual Keyboard] on usb-0000:00:03.0-2/input0
+[  891.393868] usb 1-1: new high-speed USB device number 3 using ehci-pci
+[  891.549148] usb 1-1: New USB device found, idVendor=203a, idProduct=fffa, bcdDevice= 1.00
+[  891.549154] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[  891.549154] usb 1-1: Product: Virtual Printer (Print to PDF (Mac Desktop))
+[  891.549155] usb 1-1: Manufacturer: Parallels
+[  891.549156] usb 1-1: SerialNumber: TAG11d87aca0
+[  891.551835] usblp 1-1:1.0: usblp0: USB Unidirectional printer dev 3 if 0 alt 0 proto 1 vid 0x203A pid 0xFFFA
+[  894.511030] rfkill: input handler enabled
+[  895.973374] rfkill: input handler disabled
+[  896.621792] usblp0: removed
+[  896.630147] usblp 1-1:1.0: usblp0: USB Unidirectional printer dev 3 if 0 alt 0 proto 1 vid 0x203A pid 0xFFFA
+[  900.266181] kauditd_printk_skb: 5 callbacks suppressed
+[  900.266183] audit: type=1400 audit(1658201173.226:93): apparmor="DENIED" operation="capable" profile="/usr/sbin/cups-browsed" pid=6557 comm="cups-browsed" capability=23  capname="sys_nice"
+[ 1202.405206] audit: type=1400 audit(1658201475.367:94): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="/usr/lib/cups/backend/cups-pdf" pid=25825 comm="apparmor_parser"
+[ 1202.406976] audit: type=1400 audit(1658201475.367:95): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="/usr/sbin/cupsd" pid=25825 comm="apparmor_parser"
+[ 1202.424425] audit: type=1400 audit(1658201475.387:96): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="/usr/sbin/cupsd//third_party" pid=25825 comm="apparmor_parser"
+[ 1237.512561] SGI XFS with ACLs, security attributes, realtime, quota, no debug enabled
+[ 1237.519510] JFS: nTxBlock = 8192, nTxLock = 65536
+[ 1237.530064] ntfs: driver 2.1.32 [Flags: R/O MODULE].
+[ 1237.544297] QNX4 filesystem 0.2.3 registered.
+[ 1237.598984] raid6: neonx8   gen() 525260 MB/s
+[ 1237.646994] raid6: neonx8   xor() 408641 MB/s
+[ 1237.694989] raid6: neonx4   gen() 560142 MB/s
+[ 1237.742993] raid6: neonx4   xor() 456192 MB/s
+[ 1237.791538] raid6: neonx2   gen() 585346 MB/s
+[ 1237.839513] raid6: neonx2   xor() 459738 MB/s
+[ 1237.887510] raid6: neonx1   gen() 533744 MB/s
+[ 1237.935511] raid6: neonx1   xor() 353385 MB/s
+[ 1237.983512] raid6: int64x8  gen() 235639 MB/s
+[ 1238.031512] raid6: int64x8  xor() 123270 MB/s
+[ 1238.079512] raid6: int64x4  gen() 207568 MB/s
+[ 1238.127432] raid6: int64x4  xor() 108706 MB/s
+[ 1238.175506] raid6: int64x2  gen() 179363 MB/s
+[ 1238.223612] raid6: int64x2  xor() 95116 MB/s
+[ 1238.271504] raid6: int64x1  gen() 153372 MB/s
+[ 1238.318912] raid6: int64x1  xor() 77643 MB/s
+[ 1238.318912] raid6: using algorithm neonx2 gen() 25871 MB/s
+[ 1238.318913] raid6: .... xor() 459738 MB/s, rmw enabled
+[ 1238.318914] raid6: using neon recovery algorithm
+[ 1238.322118] xor: measuring software checksum speed
+[ 1238.322392]    8regs           : 36679 MB/sec
+[ 1238.322741]    32regs          : 29743 MB/sec
+[ 1238.322917]    arm64_neon      : 57613 MB/sec
+[ 1238.322917] xor: using function: arm64_neon (57613 MB/sec)
+[ 1238.340448] Btrfs loaded, crc32c=crc32c-generic, zoned=yes
+[ 1244.456558] audit: type=1400 audit(1658201517.420:97): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="/usr/sbin/tcpdump" pid=36895 comm="apparmor_parser"
+[ 1548.256574] audit: type=1400 audit(1658201821.217:98): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="/usr/lib/snapd/snap-confine" pid=81071 comm="apparmor_parser"
+[ 1548.271195] audit: type=1400 audit(1658201821.237:99): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="/usr/lib/snapd/snap-confine//mount-namespace-capture-helper" pid=81071 comm="apparmor_parser"
+[ 1548.999409] audit: type=1400 audit(1658201821.961:100): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="snap-update-ns.lxd" pid=81174 comm="apparmor_parser"
+[ 1549.002471] audit: type=1400 audit(1658201821.965:101): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="/snap/snapd/16299/usr/lib/snapd/snap-confine" pid=81173 comm="apparmor_parser"
+[ 1549.002473] audit: type=1400 audit(1658201821.965:102): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="/snap/snapd/16299/usr/lib/snapd/snap-confine//mount-namespace-capture-helper" pid=81173 comm="apparmor_parser"
+[ 1549.007466] audit: type=1400 audit(1658201821.969:103): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="snap.lxd.benchmark" pid=81179 comm="apparmor_parser"
+[ 1549.007549] audit: type=1400 audit(1658201821.969:104): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="snap.lxd.activate" pid=81176 comm="apparmor_parser"
+[ 1549.015886] audit: type=1400 audit(1658201821.977:105): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="snap.lxd.check-kernel" pid=81183 comm="apparmor_parser"
+[ 1549.015912] audit: type=1400 audit(1658201821.977:106): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="snap.lxd.buginfo" pid=81182 comm="apparmor_parser"
+[ 1549.027201] audit: type=1400 audit(1658201821.989:107): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="snap.lxd.hook.configure" pid=81189 comm="apparmor_parser"
+[ 1549.305525] loop3: detected capacity change from 0 to 8
+[ 1593.487653] kauditd_printk_skb: 7 callbacks suppressed
+[ 1593.487656] audit: type=1400 audit(1658201866.449:115): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="libreoffice-oopslash" pid=85718 comm="apparmor_parser"
+[ 1593.501267] audit: type=1400 audit(1658201866.461:116): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="libreoffice-senddoc" pid=85721 comm="apparmor_parser"
+[ 1595.828420] audit: type=1400 audit(1658201868.789:117): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="libreoffice-soffice" pid=85724 comm="apparmor_parser"
+[ 1595.843223] audit: type=1400 audit(1658201868.805:118): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="libreoffice-soffice//gpg" pid=85724 comm="apparmor_parser"
+[ 1595.858938] audit: type=1400 audit(1658201868.821:119): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="libreoffice-xpdfimport" pid=85735 comm="apparmor_parser"
+[11098.074717] audit: type=1400 audit(1658211371.013:120): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="/usr/lib/NetworkManager/nm-dhcp-client.action" pid=130216 comm="apparmor_parser"
+[11098.075508] audit: type=1400 audit(1658211371.013:121): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="/usr/lib/NetworkManager/nm-dhcp-helper" pid=130216 comm="apparmor_parser"
+[11098.076386] audit: type=1400 audit(1658211371.013:122): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="/usr/lib/connman/scripts/dhclient-script" pid=130216 comm="apparmor_parser"
+[11098.078254] audit: type=1400 audit(1658211371.017:123): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="/{,usr/}sbin/dhclient" pid=130216 comm="apparmor_parser"
+[11105.708521] systemd[1]: systemd 245.4-4ubuntu3.17 running in system mode. (+PAM +AUDIT +SELINUX +IMA +APPARMOR +SMACK +SYSVINIT +UTMP +LIBCRYPTSETUP +GCRYPT +GNUTLS +ACL +XZ +LZ4 +SECCOMP +BLKID +ELFUTILS +KMOD +IDN2 -IDN +PCRE2 default-hierarchy=hybrid)
+[11105.708537] systemd[1]: Detected virtualization parallels.
+[11105.708539] systemd[1]: Detected architecture arm64.
+[11105.750018] systemd[1]: /etc/systemd/system/prltoolsd.service:13: PIDFile= references a path below legacy directory /var/run/, updating /var/run/prltoolsd.pid → /run/prltoolsd.pid; please update the unit file accordingly.
+[11105.880588] systemd[1]: Stopping Journal Service...
+[11105.880750] systemd-journald[243]: Received SIGTERM from PID 1 (systemd).
+[11105.892927] systemd[1]: systemd-journald.service: Succeeded.
+[11105.893192] systemd[1]: Stopped Journal Service.
+[11105.894222] systemd[1]: Starting Journal Service...
+[11105.909149] systemd[1]: Started Journal Service.
+[11105.916128] systemd-journald[131775]: Received client request to flush runtime journal.
+[11106.484336] audit: type=1400 audit(1658211379.421:124): apparmor="STATUS" operation="profile_replace" profile="unconfined" name="/usr/lib/snapd/snap-confine" pid=131895 comm="apparmor_parser"
+[11106.494354] audit: type=1400 audit(1658211379.433:125): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="/usr/lib/snapd/snap-confine//mount-namespace-capture-helper" pid=131895 comm="apparmor_parser"
+[11107.503752] loop3: detected capacity change from 0 to 8
+[11107.807820] audit: type=1400 audit(1658211380.746:126): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="/snap/snapd/16299/usr/lib/snapd/snap-confine" pid=132117 comm="apparmor_parser"
+[11107.807826] audit: type=1400 audit(1658211380.746:127): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="/snap/snapd/16299/usr/lib/snapd/snap-confine//mount-namespace-capture-helper" pid=132117 comm="apparmor_parser"
+[11107.809441] audit: type=1400 audit(1658211380.750:128): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="snap-update-ns.lxd" pid=132118 comm="apparmor_parser"
+[11107.813890] audit: type=1400 audit(1658211380.754:129): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="snap.lxd.activate" pid=132119 comm="apparmor_parser"
+[11107.817806] audit: type=1400 audit(1658211380.758:130): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="snap.lxd.benchmark" pid=132125 comm="apparmor_parser"
+[11107.821831] audit: type=1400 audit(1658211380.762:131): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="snap.lxd.buginfo" pid=132126 comm="apparmor_parser"
+[11107.827576] audit: type=1400 audit(1658211380.766:132): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="snap.lxd.check-kernel" pid=132127 comm="apparmor_parser"
+[11107.832582] audit: type=1400 audit(1658211380.774:133): apparmor="STATUS" operation="profile_replace" info="same as current profile, skipping" profile="unconfined" name="snap.lxd.daemon" pid=132129 comm="apparmor_parser"
+[13241.098867] <1> Hello,World
