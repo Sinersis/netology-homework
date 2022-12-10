@@ -1,0 +1,82 @@
+version: "3"
+
+services:
+  netology-db:
+    image: postgres:latest
+    container_name: melentevav-netology-db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./pg_data:/var/lib/postgresql/data/pgdata
+    environment:
+      POSTGRES_PASSWORD: melentevav12!3!!
+      POSTGRES_DB: melentevav-db
+      PGDATA: /var/lib/postgresql/data/pgdata
+    networks:
+      melentevav-my-netology-hw:
+        ipv4_address: 172.22.0.2
+    restart: always
+
+  pgAdmin:
+    image: dpage/pgadmin4
+    container_name: melentevav-pgadmin
+    ports:
+      - "8082:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: melentevav@ilove-netology.com
+      PGADMIN_DEFAULT_PASSWORD: melentevav12!3!!
+    networks:
+      melentevav-my-netology-hw:
+        ipv4_address: 172.22.0.3
+    restart: always
+
+  zabbix-server:
+    image: zabbix/zabbix-server-pgsql
+    container_name: melentevav-zabbix-netology
+    environment:
+      DB_SERVER_HOST: '172.22.0.2'
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: melentevav12!3!!
+    links:
+      - netology-db
+    depends_on:
+      - netology-db
+    networks:
+      melentevav-my-netology-hw:
+        ipv4_address: 172.22.0.4
+    restart: always
+
+  zabbix-frontend:
+    image: zabbix/zabbix-web-apache-pgsql
+    container_name: melentevav-netology-zabbix-frontend
+    environment:
+      DB_SERVER_HOST: '172.22.0.2'
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: melentevav12!3!!
+      ZBX_SERVER_HOST: "zabbix-frontend"
+      PHP_TZ: "Europe/Moscow"
+    ports:
+      - "8083:8080"
+      - "4437:8443"
+    links:
+      - netology-db
+      - zabbix-server
+    depends_on:
+      - netology-db
+      - zabbix-server
+    networks:
+      melentevav-my-netology-hw:
+        ipv4_address: 172.22.0.5
+    restart: always
+
+
+networks:
+  melentevav-my-netology-hw:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.22.0.0/24
+
+
+
+  
