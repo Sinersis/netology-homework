@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.deployment.name }}
+spec:
+  selector:
+    matchLabels:
+      app: redis
+  replicas: {{ .Values.deployment.replicas }}
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+      - name: {{ .Values.deployment.container.name }}
+        image: bitnami/redis
+        env:
+         - name: REDIS_PASSWORD
+           value: {{ .Values.deployment.env.password }}
+        ports:
+        - containerPort: {{ .Values.deployment.ports.containerPort }}

@@ -1,0 +1,14 @@
+deployment:
+  name: redis
+  replicas: 1
+  container:
+    name: master
+  env:
+    password: password123
+  ports:
+    containerPort: 6379
+
+service:
+  name: redis-service
+  port: 6379
+  targetPort: 6379
