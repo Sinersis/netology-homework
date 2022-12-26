@@ -1,0 +1,23 @@
+- name: "Install Tuned and Run as Service"
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: "Update"
+        apt:
+          update_cache: yes
+
+    - name: "Upgrade"
+        apt:
+          upgrade: yes
+
+    - name: "Install"
+      apt:
+        pkg: tuned
+        state: latest
+
+    - name: start tuned
+      service:
+        name: tuned
+        state: started
+        enabled: yes

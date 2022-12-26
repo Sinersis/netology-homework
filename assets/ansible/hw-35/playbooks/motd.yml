@@ -1,0 +1,10 @@
+- name: "Install Apache Kafka from archive"
+  hosts: all
+  become: yes
+  vars:
+    hello_message: Hello World
+
+  tasks:
+    - name: "change motd"
+      shell:
+        cmd: echo {{hello_message}} > /etc/motd

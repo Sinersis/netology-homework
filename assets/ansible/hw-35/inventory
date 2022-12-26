@@ -1,0 +1,8 @@
+# IP Client #1: 192.168.0.17
+# IP Client #2: 192.168.0.19
+# IP Client #3: 192.168.0.18
+
+[all]
+client_01 ansible_host=192.168.0.17 ansible_user=client-1 ansible_password=123123
+client_02 ansible_host=192.168.0.18 ansible_user=client-2 ansible_password=123123
+client_03 ansible_host=192.168.0.19 ansible_user=client-3 ansible_password=123123

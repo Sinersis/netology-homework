@@ -1,0 +1,23 @@
+- name: "Install Apache Kafka from archive"
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: "Update"
+      apt:
+        update_cache: yes
+
+    - name: "Upgrade"
+      apt:
+        upgrade: yes
+
+    - name: "Download"
+      get_url:
+        url: https://downloads.apache.org/kafka/3.3.1/kafka-3.3.1-src.tgz
+        dest: /tmp
+
+    - name: "UnZip"
+      unarchive:
+        src: /tmp/kafka-3.3.1-src.tgz
+        dest: /tmp
+        copy: no
