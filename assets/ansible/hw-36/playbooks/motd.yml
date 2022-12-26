@@ -1,0 +1,34 @@
+- name: "Install Apache Kafka from archive"
+  hosts: all
+  become: yes
+  vars:
+    hello_message: Hello World
+
+  tasks:
+    - name: "clear motd"
+      shell:
+        cmd: cat /dev/null > /etc/motd
+
+    - name: "add host ip"
+      copy:
+        dest: /etc/update-motd.d/97-host-ip
+        mode: 0755
+        content: |
+          #!/bin/bash
+          hostname -I | awk '{print $1}'
+
+    - name: "add host name"
+      copy:
+        dest: /etc/update-motd.d/98-hostname
+        mode: 0755
+        content: |
+          #!/bin/bash
+          hostname
+
+    - name: "add nice day"
+      copy:
+        dest: /etc/update-motd.d/99-hostname
+        mode: 0755
+        content: |
+          #!/bin/bash
+          echo "Have a nice day"

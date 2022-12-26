@@ -1,0 +1,16 @@
+- name: "Install Apache"
+  apt:
+    pkg: apache2
+    state: latest
+  notify:
+    - apache systemd
+
+- name: "Remove Old Index"
+  file:
+    path: /var/www/html/index.html
+    state: absent
+
+- name: "Add New Index"
+  template:
+    src: templates/index.html
+    dest: /var/www/html/index.html

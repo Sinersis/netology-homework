@@ -1,0 +1,5 @@
+- name: "Install Apache service with config page"
+  hosts: all
+  roles:
+    - apache
+  become: yes
