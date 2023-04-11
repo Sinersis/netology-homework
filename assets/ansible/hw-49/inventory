@@ -1,0 +1,22 @@
+
+########## List Hosts ##########
+## Service 1 192.168.64.5
+## Service 2 192.168.64.6
+
+[all:vars]
+#Path to your privet key
+ansible_ssh_private_key_file=/Users/andz/.ssh/personal_key
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+ansible_ssh_user=ubuntu
+ansible_connection=ssh
+
+[all]
+# Hosts list
+rabbit1 ansible_host=192.168.64.5
+rabbit2 ansible_host=192.168.64.6
+
+[master]
+rabbit1 ansible_host=192.168.64.5
+
+[slave]
+rabbit2 ansible_host=192.168.64.6

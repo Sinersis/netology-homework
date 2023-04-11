@@ -1,0 +1,104 @@
+- name: "Install Rabbit HA"
+  hosts: all
+  become: yes
+
+  tasks:
+
+    - name: "Team RabbitMQ's main signing key"
+      apt_key:
+        url: https://keys.openpgp.org/vks/v1/by-fingerprint/0A9AF2115F4687BD29803A206B73A36E6026DFCA
+        state: present
+
+    - name: "Launchpad PPA that provides modern Erlang releases"
+      apt_key:
+        url: https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xf77f1eda57ebb1cc
+        state: present
+
+    - name: "PackageCloud RabbitMQ repository"
+      apt_key:
+        url: https://packagecloud.io/rabbitmq/rabbitmq-server/gpgkey
+        state: present
+
+    - name: "Provides modern Erlang/OTP releases"
+      apt_repository:
+        repo: deb http://ppa.launchpad.net/rabbitmq/rabbitmq-erlang/ubuntu jammy main
+        state: present
+
+    - name: "Provides RabbitMQ"
+      apt_repository:
+        repo: deb https://packagecloud.io/rabbitmq/rabbitmq-server/ubuntu/ jammy main
+        state: present
+
+    - name: "Update Cache"
+      apt:
+        update_cache: yes
+
+    - name: "Install Erlang"
+      apt:
+        pkg:
+          - erlang-base
+          - erlang-asn1
+          - erlang-crypto
+          - erlang-eldap
+          - erlang-ftp
+          - erlang-inets
+          - erlang-mnesia
+          - erlang-os-mon
+          - erlang-parsetools
+          - erlang-public-key
+          - erlang-runtime-tools
+          - erlang-snmp
+          - erlang-ssl
+          - erlang-syntax-tools
+          - erlang-tftp
+          - erlang-tools
+          - erlang-xmerl
+          - rabbitmq-server
+        state: present
+
+    - name: "Add IP address of all hosts to all hosts"
+      lineinfile:
+        dest: /etc/hosts
+        regexp: '.*{{ item }}$'
+        line: "{{ hostvars[item].ansible_host }} {{item}}"
+        state: present
+      when: hostvars[item].ansible_host is defined
+      with_items: "{{ groups.all }}"
+
+    - name: "Create cookie"
+      copy:
+        dest: "/var/lib/rabbitmq/.erlang.cookie"
+        mode: 400
+        owner: rabbitmq
+        group: rabbitmq
+        content: "pZ34gghnSn87rf1qs"
+
+    - name: "Restart services"
+      shell: systemctl restart rabbitmq-server
+
+    - name: "Set User"
+      shell: sudo rabbitmqctl add_user demo demopassword && sudo rabbitmqctl set_user_tags demo administrator && sudo rabbitmqctl set_permissions -p / demo ".*" ".*" ".*"
+
+- name: "Install Rabbit HA Master"
+  hosts: master
+  become: yes
+
+  tasks:
+
+    - name: "Set Rules"
+      shell: rabbitmqctl set_policy ha-all "" '{"ha-mode":"all","ha-sync-mode":"automatic"}'
+
+- name: "Install Rabbit HA slave"
+  hosts: slave
+  become: yes
+
+  tasks:
+    - name: Stop slave
+      shell: rabbitmqctl stop_app
+
+    - name: Join Cluster
+      shell: rabbitmqctl join_cluster rabbit@rabbit1
+
+    - name: Start slave
+      shell: rabbitmqctl start_app
+
