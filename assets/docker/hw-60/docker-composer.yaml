@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  netology-db:
+    image: postgres:latest
+    container_name: melentevav-netology-db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data/pgdata
+      - pg_backup:/tmp/backup
+    environment:
+      POSTGRES_PASSWORD: 123321
+      PGDATA: /var/lib/postgresql/data/pgdata
+    restart: always
+
+volumes:
+  pg_data:
+  pg_backup:
+
+
+
+  
