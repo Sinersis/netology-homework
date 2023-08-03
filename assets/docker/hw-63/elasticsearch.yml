@@ -1,0 +1,4 @@
+node.name: "netology_test"
+path:
+  repo: /home/elasticsearch/elasticsearch-8.9.0/snapshots
+  data: /var/lib/elasticsearch
