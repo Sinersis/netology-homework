@@ -1,0 +1,5 @@
+[nodes:children]
+manager
+
+[manager]
+server-1-netology ansible_host=192.168.64.17 ansible_ssh_port=22 ansible_ssh_user=vagrant ansible_ssh_private_key_file=/Users/andz/.ssh/personal_key
