@@ -1,0 +1,23 @@
+[webservers]
+
+%{~ for web in servers.webservers ~}
+
+${web["name"]}   ansible_host=${web["network_interface"][0]["nat_ip_address"]}
+
+%{~ endfor ~}
+
+[databases]
+
+%{~ for db in servers.databases ~}
+
+${db["name"]}   ansible_host=${db["network_interface"][0]["nat_ip_address"]}
+
+%{~ endfor ~}
+
+[storage]
+
+%{~ for storage in servers.storages ~}
+
+${storage["name"]}   ansible_host=${storage["network_interface"][0]["nat_ip_address"]}
+
+%{~ endfor ~}
