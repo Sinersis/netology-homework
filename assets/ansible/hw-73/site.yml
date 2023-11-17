@@ -1,0 +1,57 @@
+---
+- name: Install Clickhouse
+  hosts: clickhouse
+  handlers:
+    - name: Start clickhouse service
+      become: true
+      ansible.builtin.service:
+        name: clickhouse-server
+        state: restarted
+  tasks:
+    - name: ClickHouse
+      block:
+        - name: Get clickhouse distrib
+          ansible.builtin.get_url:
+            url: "https://packages.clickhouse.com/rpm/stable/{{ item }}-{{ clickhouse_version }}.x86_64.rpm"
+            dest: "./{{ item }}-{{ clickhouse_version }}.rpm"
+            mode: "0644"
+          with_items: "{{ clickhouse_packages }}"
+
+        - name: Install clickhouse packages
+          ansible.builtin.yum:
+            name:
+              - ./clickhouse-common-static-{{ clickhouse_version }}.rpm
+              - ./clickhouse-client-{{ clickhouse_version }}.rpm
+              - ./clickhouse-server-{{ clickhouse_version }}.rpm
+              - ./vector-0.34.1.rpm
+            state: present
+          notify: Start clickhouse service
+
+    - name: Flush handlers
+      ansible.builtin.meta: flush_handlers
+
+    - name: Create database
+      ansible.builtin.command: "bash -c \"clickhouse-client -q 'create database logs;'\""
+      register: create_db
+      failed_when: create_db.rc != 0 and create_db.rc != 82
+      changed_when: create_db.rc == 0
+
+    - name: ClickHouse
+      block:
+        - name: Get vector distrib
+          ansible.builtin.get_url:
+            url: "https://packages.timber.io/vector/0.34.1/vector-0.34.1-1.x86_64.rpm"
+            dest: "./vector-0.34.1.rpm"
+            mode: "0644"
+
+        - name: Install vector packages
+          ansible.builtin.yum:
+            name:
+              - ./vector-0.34.1.rpm
+            state: present
+
+        - name: Get config
+          ansible.builtin.template:
+            src: ./templates/vector.j2
+            dest: ./vector.yaml
+            mode: "0644"
