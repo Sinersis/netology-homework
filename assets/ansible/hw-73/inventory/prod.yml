@@ -2,6 +2,6 @@
 clickhouse:
   hosts:
     clickhouse-01:
-      ansible_host: 192.168.0.11
-      ansible_user: root
-      ansible_password: Sinersis89
+      ansible_host: {{ some_host }}
+      ansible_user: {{ some_usr }}
+      ansible_password: {{ some_pwd }}
