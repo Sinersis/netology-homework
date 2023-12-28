@@ -1,0 +1,307 @@
+[0KRunning with gitlab-runner 16.7.0 (102c81ba)[0;m
+[0K  on afa7f782d04d ys52gmgWy, system ID: r_TciGF1zf2mgt[0;m
+section_start:1703750362:prepare_executor
+[0K[0K[36;1mPreparing the "docker" executor[0;m[0;m
+[0KUsing Docker executor with image docker ...[0;m
+[0KStarting service docker:dind ...[0;m
+[0KPulling docker image docker:dind ...[0;m
+[0KUsing docker image sha256:45cd101fff1c17d4f81c9ab74da72a07bea70141502dbca6022ba5bccaf68a7c for docker:dind with digest docker@sha256:1b9844d846ce3a6a6af7013e999a373112c3c0450aca49e155ae444526a2c45e ...[0;m
+[0KWaiting for services to be up and running (timeout 30 seconds)...[0;m
+
+[0;33m*** WARNING:[0;m Service runner-ys52gmgwy-project-1-concurrent-0-3ad7651b31a12bb5-docker-0 probably didn't start properly.
+
+Health check error:
+service "runner-ys52gmgwy-project-1-concurrent-0-3ad7651b31a12bb5-docker-0-wait-for-service" timeout
+
+Health check container logs:
+2023-12-28T07:59:24.319285888Z waiting for TCP connection to 172.17.0.4 on [2375 2376]...
+2023-12-28T07:59:24.319320597Z dialing 172.17.0.4:2376...
+2023-12-28T07:59:24.319495972Z dialing 172.17.0.4:2375...
+2023-12-28T07:59:25.320035666Z dialing 172.17.0.4:2376...
+2023-12-28T07:59:25.320064500Z dialing 172.17.0.4:2375...
+2023-12-28T07:59:26.326637375Z dialing 172.17.0.4:2375...
+2023-12-28T07:59:26.326808292Z dialing 172.17.0.4:2376...
+
+Service container logs:
+2023-12-28T07:59:24.809990847Z Certificate request self-signature ok
+2023-12-28T07:59:24.810016222Z subject=CN = docker:dind server
+2023-12-28T07:59:24.818992347Z /certs/server/cert.pem: OK
+2023-12-28T07:59:25.516192583Z Certificate request self-signature ok
+2023-12-28T07:59:25.516216750Z subject=CN = docker:dind client
+2023-12-28T07:59:25.525701708Z /certs/client/cert.pem: OK
+2023-12-28T07:59:25.528066375Z ip: can't find device 'nf_tables'
+2023-12-28T07:59:25.528738125Z modprobe: can't change directory to '/lib/modules': No such file or directory
+2023-12-28T07:59:25.529342958Z ip: can't find device 'ip_tables'
+2023-12-28T07:59:25.530160416Z modprobe: can't change directory to '/lib/modules': No such file or directory
+2023-12-28T07:59:25.531708250Z mount: permission denied (are you root?)
+2023-12-28T07:59:25.531754958Z Could not mount /sys/kernel/security.
+2023-12-28T07:59:25.531760958Z AppArmor detection and --privileged mode might break.
+2023-12-28T07:59:25.532527000Z mount: permission denied (are you root?)
+
+[0;33m*********[0;m
+
+[0KPulling docker image docker ...[0;m
+[0KUsing docker image sha256:45cd101fff1c17d4f81c9ab74da72a07bea70141502dbca6022ba5bccaf68a7c for docker with digest docker@sha256:1b9844d846ce3a6a6af7013e999a373112c3c0450aca49e155ae444526a2c45e ...[0;m
+section_end:1703750396:prepare_executor
+[0Ksection_start:1703750396:prepare_script
+[0K[0K[36;1mPreparing environment[0;m[0;m
+Running on runner-ys52gmgwy-project-1-concurrent-0 via afa7f782d04d...
+section_end:1703750397:prepare_script
+[0Ksection_start:1703750397:get_sources
+[0K[0K[36;1mGetting source from Git repository[0;m[0;m
+[32;1mFetching changes with git depth set to 20...[0;m
+Reinitialized existing Git repository in /builds/Sinersis89/learn/.git/
+[32;1mChecking out 2211b9ec as detached HEAD (ref is main)...[0;m
+
+[32;1mSkipping Git submodules setup[0;m
+section_end:1703750397:get_sources
+[0Ksection_start:1703750397:step_script
+[0K[0K[36;1mExecuting "step_script" stage of the job script[0;m[0;m
+[0KUsing docker image sha256:45cd101fff1c17d4f81c9ab74da72a07bea70141502dbca6022ba5bccaf68a7c for docker with digest docker@sha256:1b9844d846ce3a6a6af7013e999a373112c3c0450aca49e155ae444526a2c45e ...[0;m
+[32;1m$ docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD sinersis.gitlab.yandexcloud.net:5050[0;m
+WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+[32;1m$ docker build -t sinersis.gitlab.yandexcloud.net:5050/sinersis89/learn:hello-gitlab-$CI_COMMIT_SHORT_SHA --platform linux/amd64 .[0;m
+#0 building with "default" instance using docker driver
+
+#1 [internal] load .dockerignore
+#1 transferring context: 2B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 297B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/centos:7
+#3 DONE 2.2s
+
+#4 [internal] load build context
+#4 transferring context: 437B done
+#4 DONE 0.0s
+
+#5 [1/6] FROM docker.io/library/centos:7@sha256:be65f488b7764ad3638f236b7b515b3678369a5124c47b8d32916d6487418ea4
+#5 resolve docker.io/library/centos:7@sha256:be65f488b7764ad3638f236b7b515b3678369a5124c47b8d32916d6487418ea4 0.0s done
+#5 sha256:be65f488b7764ad3638f236b7b515b3678369a5124c47b8d32916d6487418ea4 1.20kB / 1.20kB done
+#5 sha256:dead07b4d8ed7e29e98de0f4504d87e8880d4347859d839686a31da35a3b532f 529B / 529B done
+#5 sha256:eeb6ee3f44bd0b5103bb561b4c16bcb82328cfe5809ab675bb17ab3a16c517c9 2.75kB / 2.75kB done
+#5 sha256:2d473b07cdd5f0912cd6f1a703352c82b512407db6b05b43f2553732b55df3bc 0B / 76.10MB 0.1s
+#5 sha256:2d473b07cdd5f0912cd6f1a703352c82b512407db6b05b43f2553732b55df3bc 4.19MB / 76.10MB 0.6s
+#5 sha256:2d473b07cdd5f0912cd6f1a703352c82b512407db6b05b43f2553732b55df3bc 8.39MB / 76.10MB 0.8s
+#5 sha256:2d473b07cdd5f0912cd6f1a703352c82b512407db6b05b43f2553732b55df3bc 15.73MB / 76.10MB 1.3s
+#5 sha256:2d473b07cdd5f0912cd6f1a703352c82b512407db6b05b43f2553732b55df3bc 19.92MB / 76.10MB 1.4s
+#5 sha256:2d473b07cdd5f0912cd6f1a703352c82b512407db6b05b43f2553732b55df3bc 27.26MB / 76.10MB 2.0s
+#5 sha256:2d473b07cdd5f0912cd6f1a703352c82b512407db6b05b43f2553732b55df3bc 33.55MB / 76.10MB 2.5s
+#5 sha256:2d473b07cdd5f0912cd6f1a703352c82b512407db6b05b43f2553732b55df3bc 38.80MB / 76.10MB 2.9s
+#5 sha256:2d473b07cdd5f0912cd6f1a703352c82b512407db6b05b43f2553732b55df3bc 45.09MB / 76.10MB 3.5s
+#5 sha256:2d473b07cdd5f0912cd6f1a703352c82b512407db6b05b43f2553732b55df3bc 49.28MB / 76.10MB 3.9s
+#5 sha256:2d473b07cdd5f0912cd6f1a703352c82b512407db6b05b43f2553732b55df3bc 53.48MB / 76.10MB 4.2s
+#5 sha256:2d473b07cdd5f0912cd6f1a703352c82b512407db6b05b43f2553732b55df3bc 57.67MB / 76.10MB 4.6s
+#5 sha256:2d473b07cdd5f0912cd6f1a703352c82b512407db6b05b43f2553732b55df3bc 62.91MB / 76.10MB 5.0s
+#5 sha256:2d473b07cdd5f0912cd6f1a703352c82b512407db6b05b43f2553732b55df3bc 69.21MB / 76.10MB 5.4s
+#5 sha256:2d473b07cdd5f0912cd6f1a703352c82b512407db6b05b43f2553732b55df3bc 73.40MB / 76.10MB 5.8s
+#5 sha256:2d473b07cdd5f0912cd6f1a703352c82b512407db6b05b43f2553732b55df3bc 76.10MB / 76.10MB 6.1s done
+#5 extracting sha256:2d473b07cdd5f0912cd6f1a703352c82b512407db6b05b43f2553732b55df3bc 0.1s
+#5 extracting sha256:2d473b07cdd5f0912cd6f1a703352c82b512407db6b05b43f2553732b55df3bc 2.3s done
+#5 DONE 8.8s
+
+#6 [2/6] RUN yum -y install epel-release
+#6 0.345 Loaded plugins: fastestmirror, ovl
+#6 0.430 Determining fastest mirrors
+#6 5.098  * base: centos-mirror.rbc.ru
+#6 5.100  * extras: centos-mirror.rbc.ru
+#6 5.100  * updates: centos-mirror.rbc.ru
+#6 12.96 Resolving Dependencies
+#6 12.96 --> Running transaction check
+#6 12.96 ---> Package epel-release.noarch 0:7-11 will be installed
+#6 13.03 --> Finished Dependency Resolution
+#6 13.04
+#6 13.04 Dependencies Resolved
+#6 13.04
+#6 13.04 ================================================================================
+#6 13.04  Package                Arch             Version         Repository        Size
+#6 13.04 ================================================================================
+#6 13.04 Installing:
+#6 13.04  epel-release           noarch           7-11            extras            15 k
+#6 13.04
+#6 13.04 Transaction Summary
+#6 13.04 ================================================================================
+#6 13.04 Install  1 Package
+#6 13.04
+#6 13.04 Total download size: 15 k
+#6 13.04 Installed size: 24 k
+#6 13.04 Downloading packages:
+#6 13.27 warning: /var/cache/yum/x86_64/7/extras/packages/epel-release-7-11.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY
+#6 13.27 Public key for epel-release-7-11.noarch.rpm is not installed
+#6 13.28 Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+#6 13.29 Importing GPG key 0xF4A80EB5:
+#6 13.29  Userid     : "CentOS-7 Key (CentOS 7 Official Signing Key) <security@centos.org>"
+#6 13.29  Fingerprint: 6341 ab27 53d7 8a78 a7c2 7bb1 24c6 a8a7 f4a8 0eb5
+#6 13.29  Package    : centos-release-7-9.2009.0.el7.centos.x86_64 (@CentOS)
+#6 13.29  From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+#6 13.30 Running transaction check
+#6 13.31 Running transaction test
+#6 13.31 Transaction test succeeded
+#6 13.31 Running transaction
+#6 13.34   Installing : epel-release-7-11.noarch                                     1/1
+#6 13.35   Verifying  : epel-release-7-11.noarch                                     1/1
+#6 13.37
+#6 13.37 Installed:
+#6 13.37   epel-release.noarch 0:7-11
+#6 13.37
+#6 13.37 Complete!
+#6 DONE 13.7s
+
+#7 [3/6] RUN yum -y install python3 python3-pip
+#7 0.423 Loaded plugins: fastestmirror, ovl
+#7 0.510 Loading mirror speeds from cached hostfile
+#7 8.144  * base: centos-mirror.rbc.ru
+#7 8.147  * epel: mirror.yandex.ru
+#7 8.161  * extras: centos-mirror.rbc.ru
+#7 8.161  * updates: centos-mirror.rbc.ru
+#7 10.61 http://mirror.logol.ru/epel/7/x86_64/repodata/4b2dfe670f58c4a4c77fe77963acbeb45cab955cfcf2c4ffc42911f6e6329d12-updateinfo.xml.bz2: [Errno 14] HTTP Error 404 - Not Found
+#7 10.61 Trying other mirror.
+#7 10.61 To address this issue please refer to the below wiki article
+#7 10.61
+#7 10.61 https://wiki.centos.org/yum-errors
+#7 10.61
+#7 10.61 If above article doesn't help to resolve this issue please use https://bugs.centos.org/.
+#7 10.61
+#7 13.75 Resolving Dependencies
+#7 13.75 --> Running transaction check
+#7 13.75 ---> Package python3.x86_64 0:3.6.8-21.el7_9 will be installed
+#7 13.75 --> Processing Dependency: python3-libs(x86-64) = 3.6.8-21.el7_9 for package: python3-3.6.8-21.el7_9.x86_64
+#7 13.92 --> Processing Dependency: python3-setuptools for package: python3-3.6.8-21.el7_9.x86_64
+#7 13.92 --> Processing Dependency: libpython3.6m.so.1.0()(64bit) for package: python3-3.6.8-21.el7_9.x86_64
+#7 13.92 ---> Package python3-pip.noarch 0:9.0.3-8.el7 will be installed
+#7 13.92 --> Running transaction check
+#7 13.92 ---> Package python3-libs.x86_64 0:3.6.8-21.el7_9 will be installed
+#7 13.93 --> Processing Dependency: libtirpc.so.1()(64bit) for package: python3-libs-3.6.8-21.el7_9.x86_64
+#7 13.93 ---> Package python3-setuptools.noarch 0:39.2.0-10.el7 will be installed
+#7 13.93 --> Running transaction check
+#7 13.93 ---> Package libtirpc.x86_64 0:0.2.4-0.16.el7 will be installed
+#7 13.95 --> Finished Dependency Resolution
+#7 13.97
+#7 13.97 Dependencies Resolved
+#7 13.97
+#7 13.97 ================================================================================
+#7 13.97  Package                  Arch         Version              Repository     Size
+#7 13.97 ================================================================================
+#7 13.97 Installing:
+#7 13.97  python3                  x86_64       3.6.8-21.el7_9       updates        71 k
+#7 13.97  python3-pip              noarch       9.0.3-8.el7          base          1.6 M
+#7 13.97 Installing for dependencies:
+#7 13.97  libtirpc                 x86_64       0.2.4-0.16.el7       base           89 k
+#7 13.97  python3-libs             x86_64       3.6.8-21.el7_9       updates       7.0 M
+#7 13.97  python3-setuptools       noarch       39.2.0-10.el7        base          629 k
+#7 13.97
+#7 13.97 Transaction Summary
+#7 13.97 ================================================================================
+#7 13.97 Install  2 Packages (+3 Dependent packages)
+#7 13.97
+#7 13.97 Total download size: 9.3 M
+#7 13.97 Installed size: 48 M
+#7 13.97 Downloading packages:
+#7 15.02 --------------------------------------------------------------------------------
+#7 15.02 Total                                              8.9 MB/s | 9.3 MB  00:01
+#7 15.04 Running transaction check
+#7 15.05 Running transaction test
+#7 15.10 Transaction test succeeded
+#7 15.10 Running transaction
+#7 15.17   Installing : libtirpc-0.2.4-0.16.el7.x86_64                               1/5
+#7 15.56   Installing : python3-setuptools-39.2.0-10.el7.noarch                      2/5
+#7 15.85   Installing : python3-pip-9.0.3-8.el7.noarch                               3/5
+#7 15.88   Installing : python3-3.6.8-21.el7_9.x86_64                                4/5
+#7 16.88   Installing : python3-libs-3.6.8-21.el7_9.x86_64                           5/5
+#7 16.93   Verifying  : libtirpc-0.2.4-0.16.el7.x86_64                               1/5
+#7 16.93   Verifying  : python3-libs-3.6.8-21.el7_9.x86_64                           2/5
+#7 16.94   Verifying  : python3-3.6.8-21.el7_9.x86_64                                3/5
+#7 16.94   Verifying  : python3-setuptools-39.2.0-10.el7.noarch                      4/5
+#7 16.95   Verifying  : python3-pip-9.0.3-8.el7.noarch                               5/5
+#7 16.96
+#7 16.96 Installed:
+#7 16.96   python3.x86_64 0:3.6.8-21.el7_9        python3-pip.noarch 0:9.0.3-8.el7
+#7 16.96
+#7 16.96 Dependency Installed:
+#7 16.96   libtirpc.x86_64 0:0.2.4-0.16.el7
+#7 16.96   python3-libs.x86_64 0:3.6.8-21.el7_9
+#7 16.96   python3-setuptools.noarch 0:39.2.0-10.el7
+#7 16.96
+#7 16.97 Complete!
+#7 DONE 17.1s
+
+#8 [4/6] RUN pip3 install flask flask-jsonpify flask-restful
+#8 0.515 WARNING: Running pip install with root privileges is generally not a good idea. Try `pip3 install --user` instead.
+#8 0.567 Collecting flask
+#8 1.830   Downloading https://files.pythonhosted.org/packages/cd/77/59df23681f4fd19b7cbbb5e92484d46ad587554f5d490f33ef907e456132/Flask-2.0.3-py3-none-any.whl (95kB)
+#8 2.014 Collecting flask-jsonpify
+#8 2.518   Downloading https://files.pythonhosted.org/packages/60/0f/c389dea3988bffbe32c1a667989914b1cc0bce31b338c8da844d5e42b503/Flask-Jsonpify-1.5.0.tar.gz
+#8 2.940 Collecting flask-restful
+#8 3.597   Downloading https://files.pythonhosted.org/packages/d7/7b/f0b45f0df7d2978e5ae51804bb5939b7897b2ace24306009da0cc34d8d1f/Flask_RESTful-0.3.10-py2.py3-none-any.whl
+#8 3.673 Collecting Jinja2>=3.0 (from flask)
+#8 4.215   Downloading https://files.pythonhosted.org/packages/20/9a/e5d9ec41927401e41aea8af6d16e78b5e612bca4699d417f646a9610a076/Jinja2-3.0.3-py3-none-any.whl (133kB)
+#8 4.325 Collecting Werkzeug>=2.0 (from flask)
+#8 4.893   Downloading https://files.pythonhosted.org/packages/f4/f3/22afbdb20cc4654b10c98043414a14057cd27fdba9d4ae61cea596000ba2/Werkzeug-2.0.3-py3-none-any.whl (289kB)
+#8 5.080 Collecting itsdangerous>=2.0 (from flask)
+#8 5.615   Downloading https://files.pythonhosted.org/packages/9c/96/26f935afba9cd6140216da5add223a0c465b99d0f112b68a4ca426441019/itsdangerous-2.0.1-py3-none-any.whl
+#8 5.694 Collecting click>=7.1.2 (from flask)
+#8 6.249   Downloading https://files.pythonhosted.org/packages/4a/a8/0b2ced25639fb20cc1c9784de90a8c25f9504a7f18cd8b5397bd61696d7d/click-8.0.4-py3-none-any.whl (97kB)
+#8 6.322 Collecting pytz (from flask-restful)
+#8 7.031   Downloading https://files.pythonhosted.org/packages/32/4d/aaf7eff5deb402fd9a24a1449a8119f00d74ae9c2efa79f8ef9994261fc2/pytz-2023.3.post1-py2.py3-none-any.whl (502kB)
+#8 7.240 Collecting six>=1.3.0 (from flask-restful)
+#8 7.776   Downloading https://files.pythonhosted.org/packages/d9/5a/e7c31adbe875f2abbb91bd84cf2dc52d792b5a01506781dbcf25c91daf11/six-1.16.0-py2.py3-none-any.whl
+#8 7.856 Collecting aniso8601>=0.82 (from flask-restful)
+#8 8.410   Downloading https://files.pythonhosted.org/packages/e3/04/e97c12dc034791d7b504860acfcdd2963fa21ae61eaca1c9d31245f812c3/aniso8601-9.0.1-py2.py3-none-any.whl (52kB)
+#8 8.501 Collecting MarkupSafe>=2.0 (from Jinja2>=3.0->flask)
+#8 9.122   Downloading https://files.pythonhosted.org/packages/fc/d6/57f9a97e56447a1e340f8574836d3b636e2c14de304943836bd645fa9c7e/MarkupSafe-2.0.1-cp36-cp36m-manylinux1_x86_64.whl
+#8 9.174 Collecting dataclasses; python_version < "3.7" (from Werkzeug>=2.0->flask)
+#8 9.701   Downloading https://files.pythonhosted.org/packages/fe/ca/75fac5856ab5cfa51bbbcefa250182e50441074fdc3f803f6e76451fab43/dataclasses-0.8-py3-none-any.whl
+#8 9.785 Collecting importlib-metadata; python_version < "3.8" (from click>=7.1.2->flask)
+#8 10.36   Downloading https://files.pythonhosted.org/packages/a0/a1/b153a0a4caf7a7e3f15c2cd56c7702e2cf3d89b1b359d1f1c5e59d68f4ce/importlib_metadata-4.8.3-py3-none-any.whl
+#8 10.43 Collecting typing-extensions>=3.6.4; python_version < "3.8" (from importlib-metadata; python_version < "3.8"->click>=7.1.2->flask)
+#8 10.99   Downloading https://files.pythonhosted.org/packages/45/6b/44f7f8f1e110027cf88956b59f2fad776cca7e1704396d043f89effd3a0e/typing_extensions-4.1.1-py3-none-any.whl
+#8 11.07 Collecting zipp>=0.5 (from importlib-metadata; python_version < "3.8"->click>=7.1.2->flask)
+#8 11.62   Downloading https://files.pythonhosted.org/packages/bd/df/d4a4974a3e3957fd1c1fa3082366d7fff6e428ddb55f074bf64876f8e8ad/zipp-3.6.0-py3-none-any.whl
+#8 11.67 Installing collected packages: MarkupSafe, Jinja2, dataclasses, Werkzeug, itsdangerous, typing-extensions, zipp, importlib-metadata, click, flask, flask-jsonpify, pytz, six, aniso8601, flask-restful
+#8 12.05   Running setup.py install for flask-jsonpify: started
+#8 12.37     Running setup.py install for flask-jsonpify: finished with status 'done'
+#8 12.56 Successfully installed Jinja2-3.0.3 MarkupSafe-2.0.1 Werkzeug-2.0.3 aniso8601-9.0.1 click-8.0.4 dataclasses-0.8 flask-2.0.3 flask-jsonpify-1.5.0 flask-restful-0.3.10 importlib-metadata-4.8.3 itsdangerous-2.0.1 pytz-2023.3.post1 six-1.16.0 typing-extensions-4.1.1 zipp-3.6.0
+#8 DONE 13.4s
+
+#9 [5/6] WORKDIR ./python_api
+#9 DONE 0.0s
+
+#10 [6/6] COPY ./python-api.py ./python_api/python-api.py
+#10 DONE 0.0s
+
+#11 exporting to image
+#11 exporting layers
+#11 exporting layers 0.6s done
+#11 writing image sha256:31c9de12b7f379a07caa9879d836e086f7e1d476dd787668ce7790a77e2590fd done
+#11 naming to sinersis.gitlab.yandexcloud.net:5050/sinersis89/learn:hello-gitlab-2211b9ec done
+#11 DONE 0.6s
+WARNING: current commit information was not captured by the build: git was not found in the system: exec: "git": executable file not found in $PATH
+[32;1m$ docker push sinersis.gitlab.yandexcloud.net:5050/sinersis89/learn:hello-gitlab-$CI_COMMIT_SHORT_SHA[0;m
+The push refers to repository [sinersis.gitlab.yandexcloud.net:5050/sinersis89/learn]
+ecc938f90e46: Preparing
+b8f4b3d5c2cc: Preparing
+9bee26be2227: Preparing
+ff7afed4122a: Preparing
+37d82e05985f: Preparing
+174f56854903: Preparing
+174f56854903: Waiting
+ecc938f90e46: Pushed
+b8f4b3d5c2cc: Pushed
+9bee26be2227: Pushed
+174f56854903: Pushed
+37d82e05985f: Pushed
+ff7afed4122a: Pushed
+hello-gitlab-2211b9ec: digest: sha256:c53d26f644c939ec79281f9542fb809d8a880e1f0e8dcdef5282343454b32a95 size: 1578
+section_end:1703750473:step_script
+[0Ksection_start:1703750473:cleanup_file_variables
+[0K[0K[36;1mCleaning up project directory and file based variables[0;m[0;m
+section_end:1703750474:cleanup_file_variables
+[0K[32;1mJob succeeded[0;m
