@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: init-deployment
+  labels:
+    name: init-deployment
+
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: init-deployment
+
+  template:
+    metadata:
+      labels:
+        name: init-deployment
+    spec:
+      initContainers:
+        - name: init-box
+          image: busybox
+          command: ['sh', '-c', 'until nslookup init-svc.default.svc.cluster.local; do echo waiting for init-svc.default.svc.cluster.local; sleep 10; done;']
+      containers:
+        - name: nginx
+          image: nginx:latest
+
+
+
