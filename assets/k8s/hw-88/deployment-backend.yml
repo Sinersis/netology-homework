@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  labels:
+    app: backend-deployment
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-deployment
+
+  template:
+    metadata:
+      labels:
+        app: backend-deployment
+    spec:
+      containers:
+        - name: multitool
+          image: wbitt/network-multitool:latest
+
+
+
