@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: demon-storage
+  labels:
+    app: daemon-storage
+
+spec:
+  selector:
+    matchLabels:
+      app: daemon-storage
+
+  template:
+    metadata:
+      labels:
+        app: daemon-storage
+    spec:
+      volumes:
+        - name: logs
+          hostPath:
+            path: "/var/log/syslog"
+
+      containers:
+        - name: multitool
+          image: wbitt/network-multitool:latest
+          volumeMounts:
+            - mountPath: /input
+              name: logs
+              readOnly: true
+
+
+
+

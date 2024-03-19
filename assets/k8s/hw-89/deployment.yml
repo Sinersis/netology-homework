@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-storage
+  labels:
+    app: deployment-storage
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deployment-storage
+
+  template:
+    metadata:
+      labels:
+        app: deployment-storage
+    spec:
+      volumes:
+        - name: logs
+          emptyDir: {}
+      containers:
+        - name: logger
+          image: busybox
+          command: ['sh', '-c', 'while true ; do sleep 5; echo Success >> /output/logger.txt; done']
+          volumeMounts:
+            - mountPath: /output
+              name: logs
+
+        - name: multitool
+          image: wbitt/network-multitool:latest
+          volumeMounts:
+            - mountPath: /input
+              name: logs
+              readOnly: true
+
+
+
+
