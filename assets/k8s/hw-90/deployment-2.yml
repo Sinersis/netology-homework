@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-volume-dynamic
+  labels:
+    app: deployment-volume-dynamic
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deployment-volume-dynamic
+
+  template:
+    metadata:
+      labels:
+        app: deployment-volume-dynamic
+    spec:
+      volumes:
+        - name: c-volume
+          persistentVolumeClaim:
+            claimName: pvc-volume-dynamic
+      containers:
+        - name: multitool
+          image: wbitt/network-multitool:latest
+          volumeMounts:
+            - mountPath: /input
+              name: c-volume
+
+
+
+

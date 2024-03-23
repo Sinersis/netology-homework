@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-volume
+  labels:
+    app: deployment-volume
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deployment-volume
+
+  template:
+    metadata:
+      labels:
+        app: deployment-volume
+    spec:
+      volumes:
+        - name: d-volume
+          persistentVolumeClaim:
+            claimName: pvc-volume
+      containers:
+        - name: logger
+          image: busybox
+          command: ['sh', '-c', 'while true ; do sleep 5; echo Success >> /output/logger.txt; done']
+          volumeMounts:
+            - mountPath: /output
+              name: d-volume
+
+        - name: multitool
+          image: wbitt/network-multitool:latest
+          volumeMounts:
+            - mountPath: /input
+              name: d-volume
+
+
+
+
