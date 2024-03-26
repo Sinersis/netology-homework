@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-ssl-deployment
+  labels:
+    name: nginx-ssl-deployment
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: nginx-ssl-deployment
+
+  template:
+    metadata:
+      labels:
+        name: nginx-ssl-deployment
+    spec:
+      volumes:
+        - name: nginx-page
+          configMap:
+            name: nginx-config
+            items:
+              - key: html_page
+                path: index.html
+        - name: nginx-conf
+          configMap:
+            name: nginx-config
+            items:
+              - key: default_https_conf
+                path: default.conf
+        - name: nginx-cert
+          secret:
+            secretName: nginx-crt
+            items:
+              - key: tls.crt
+                path: tls.crt
+              - key: tls.key
+                path: tls.key
+
+      containers:
+        - name: nginx
+          image: nginx:latest
+          volumeMounts:
+            - mountPath: /var/www/html/
+              name: nginx-page
+            - mountPath: /etc/nginx/conf.d/
+              name: nginx-conf
+            - mountPath: /etc/cssl/
+              name: nginx-cert
+
+
