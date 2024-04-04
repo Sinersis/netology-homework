@@ -1,0 +1,5 @@
+deployment_name: ""
+
+image:
+  repository: wbitt/network-multitool
+  tag: "latest"
