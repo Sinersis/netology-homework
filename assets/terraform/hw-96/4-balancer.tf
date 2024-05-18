@@ -1,5 +1,4 @@
 resource "yandex_lb_network_load_balancer" "netology-balancer" {
-  depends_on = [yandex_compute_instance_group.netology-group]
   name = "netology-balancer"
 
   listener {

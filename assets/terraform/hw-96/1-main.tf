@@ -37,7 +37,6 @@ resource "yandex_vpc_network" "netology-network" {
 }
 
 resource "yandex_vpc_subnet" "netology-network-public" {
-  depends_on = [yandex_vpc_network.netology-network]
   name = "netology-network-public"
   v4_cidr_blocks = ["192.168.10.0/24"]
   zone           = "ru-central1-a"

@@ -1,5 +1,4 @@
 resource "yandex_compute_instance_group" "netology-group" {
-  depends_on = [yandex_storage_object.image-object]
   name                          = "netology-group"
   service_account_id            = yandex_iam_service_account.netology-sa.id
   folder_id = var.folder_id
