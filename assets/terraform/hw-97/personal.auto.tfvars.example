@@ -1,0 +1,8 @@
+token                   = ""
+cloud_id                = ""
+folder_id               = ""
+ssh_key_path            = ""
+ssh_private_key_path    = ""
+path_image_source       = ""
+access_key_bucket       = ""
+secret_key_bucket       = ""
