@@ -40,12 +40,12 @@ variable "path_image_source" {
 
 variable "access_key_bucket" {
   type    = string
-  default = "../../images/hw-96/img.png"
+  default = ""
 }
 
 variable "secret_key_bucket" {
   type    = string
-  default = "../../images/hw-96/img.png"
+  default = ""
 }
 
 variable "default_zone" {
