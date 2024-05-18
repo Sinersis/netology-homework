@@ -1,0 +1,23 @@
+#cloud-config
+package-update: true
+packages:
+ - nginx
+
+write_files:
+ - path: /var/www/html/index.html
+   content: |
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Image Code</title>
+    </head>
+    <body>
+        <h1>Welcome to instance: __INSTANCE_NAME__</h1>
+        <img src="https://storage.yandexcloud.net/images-bucket-netology/image.png" alt="Non">
+    </body>
+    </html>
+
+runcmd:
+ - hostname=$(hostname) && sed -i "s/__INSTANCE_NAME__/$hostname/g" /var/www/html/index.html
